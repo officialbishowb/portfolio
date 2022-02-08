@@ -14,6 +14,13 @@ $(document).mouseup(e => {
         $openClass.removeClass('open');
     }
 });
+
+// If a navbar link is clicked, add the active class to the link
+$('#menu_item li a').click(function() {
+    $('#menu_item li a').removeClass("active");
+    $(this).addClass("active");
+});
+
 /*********************************** ACTIVE CLASS ***********************************/
 // Credit goes to w3
 
