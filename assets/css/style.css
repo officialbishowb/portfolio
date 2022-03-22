@@ -413,12 +413,6 @@
         border: none;
     }
     
-    .skill_percent {
-        padding: 8px 8px 8px 10px;
-        background-color: #000000;
-        border-radius: 5px;
-    }
-    
     @media screen and (max-width:924px) {
         #skills_container {
             width: 95%;
