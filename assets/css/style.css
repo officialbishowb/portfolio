@@ -93,7 +93,7 @@
     
     header {
         position: fixed;
-        height: 60px;
+        height: 70px;
         background-color: var(--second-background);
         left: 0;
         top: 0;
@@ -105,8 +105,7 @@
     }
     
     header img {
-        width: 200px;
-        height: 50px
+        width: 140px;
     }
     
     .logo {
@@ -150,7 +149,8 @@
     
     @media screen and (max-width:760px) {
         header img {
-            width: 160px;
+            width: 100px;
+            margin-top: 8px;
         }
         #menu_bar {
             display: inline;
