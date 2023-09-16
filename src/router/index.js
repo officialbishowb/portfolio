@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import SuccessFormView from '../views/SuccessFormView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import SuccessFormView from '../views/SuccessFormView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,22 +9,21 @@ const router = createRouter({
       path: '/',
       component: HomeView,
     },
-    
     {
       path: '/home',
+      name: 'Home',
       component: HomeView,
     },
     {
-      path: "/success-form",
-      name: "success-form",
-      component: SuccessFormView,	
+      path: '/success-form',
+      name: 'Success Form',
+      component: SuccessFormView,
     },
-    // add a catch-all route to redirect to the home page if an invalid path is entered
     {
-      path: '/*',
+      path: '/:catchAll(.*)', // Catch-all route for invalid paths
       redirect: '/',
     },
-  ]
-})
+  ],
+});
 
-export default router
+export default router;
