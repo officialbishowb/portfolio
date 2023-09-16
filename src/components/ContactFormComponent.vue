@@ -1,5 +1,5 @@
 <template>
-    <form  name="contact-officialbishowb-form" action="/success-form" data-netlify="true" method="POST" netlify-honeypot="bot-field">
+    <form  name="contact-officialbishowb-form" data-netlify="true" method="POST" netlify-honeypot="bot-field">
         <div class="form-group">
             <input type="email" id="email" class="form-control" v-model="email" name="email" placeholder="Email" required>
         </div>

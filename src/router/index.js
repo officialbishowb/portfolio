@@ -14,11 +14,7 @@ const router = createRouter({
       name: 'Home',
       component: HomeView,
     },
-    {
-      path: '/success-form',
-      name: 'Success Form',
-      component: SuccessFormView,
-    },
+  
     {
       path: '/:catchAll(.*)', // Catch-all route for invalid paths
       redirect: '/',
