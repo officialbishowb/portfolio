@@ -6,7 +6,7 @@
         <div class="project-content row mt-5 justify-content-center">
 
             <div class="col-md-6">
-                <ContactForm />
+                <ContactFormComponent />
             </div>
 
 
@@ -17,12 +17,12 @@
 
 <script>
 
-import ContactForm from '../components/ContactForm.vue';
+import ContactFormComponent from '../components/ContactFormComponent.vue';
 
 export default {
-    name: 'Contact',
+    name: 'ContactView',
     components: {
-        ContactForm
+        ContactFormComponent
     },
 };
 </script>

@@ -12,7 +12,7 @@
 <script>
 
 export default {
-    name: 'SuccessForm',
+    name: 'SuccessFormView',
     mounted() {
         setTimeout(() => {
             this.$router.push('/');

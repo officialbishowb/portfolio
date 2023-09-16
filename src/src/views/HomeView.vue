@@ -1,6 +1,6 @@
 <template>
   <!-- Header -->
-  <Navbar />
+  <NavbarComponents />
 
 
   <!-- Home -->
@@ -9,7 +9,7 @@
       <h2 class="name">bishow</h2>
 
       <div class="more">
-        <a href="#about" @click.native="setActive('/#about')" class="btn btn-primary">more about me</a>
+        <a href="#about" v-on:click="setActive('/#about')" class="btn btn-primary">more about me</a>
     </div>
     </div>
 
@@ -19,12 +19,12 @@
 
 <script>
 
-import Navbar from '../components/Navbar.vue';
+import NavbarComponents from '../components/NavbarComponent.vue';
 
 export default {
-  name: 'Home',
+  name: 'HomeView',
   components: {
-    Navbar
+    NavbarComponents
   },
 };
 

@@ -1,6 +1,6 @@
 <template>
 
-        <div v-for="skill in skills" class="skill col-lg-3 col-md-6">
+        <div v-for="skill in skills" :key="skill.name" class="skill col-lg-3 col-md-6">
             <h4 class="bb-second-accent-color bold">{{skill.name}}</h4>
             <p v-html="skill.description"></p>
         </div>
@@ -11,7 +11,7 @@
 <script>
 
 export default {
-    name: 'SkillsCard',
+    name: 'SkillsCardComponent',
     data() {
         return {
             skills: []
@@ -28,7 +28,7 @@ export default {
                 "python":"Python, my favorite language. Python is very good for beginners. I use it for different things Telegram Bot, Scripts, and many more. However, I still need to learn many things, like Python decorators, working more with Asynchronous and so on. ",
                 "java":"I need to learn Java for my school. So yes, not my favorite, but I have the basic knowledge.",
                 "sql":"If you work with databases, you need SQL knowledge. Joins still confuse me :|",
-                "c#":"C#, my very first step into programming. It taught me some basic programming skills and I really like WinForm. However, I don't have any project idea for it at the moment."
+                "c#":"C#, my very first step into programming. It taught me some basic programming skills and I really liked WinForm. Beside that I worked with ASP.NET Core, during my Internship and was able to learn little bit more about C#. However, I don't have any project idea for it at the moment.",
             }
 
             for(var key in my_skills) {

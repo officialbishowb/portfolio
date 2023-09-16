@@ -1,10 +1,10 @@
 <script setup>
-import HomeView from './views/Home.vue';
-import AboutView from './views/About.vue';
-import ProjectsView from './views/Projects.vue';
-import SkillsView from './views/Skills.vue';
-import ContactView from './views/Contact.vue';
-import FooterView from './views/Footer.vue';
+import HomeView from './views/HomeView.vue';
+import AboutView from './views/AboutView.vue';
+import ProjectsView from './views/ProjectsView.vue';
+import SkillsView from './views/SkillsView.vue';
+import ContactView from './views/ContactView.vue';
+import FooterView from './views/FooterView.vue';
 </script>
 
 <template>

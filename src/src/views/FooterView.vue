@@ -15,7 +15,7 @@
 <script>
 
 export default {
-    name: 'Footer',
+    name: 'FooterView',
     mounted() {
         const currentYear = new Date().getFullYear();
         document.getElementById('current_year').innerHTML = currentYear;

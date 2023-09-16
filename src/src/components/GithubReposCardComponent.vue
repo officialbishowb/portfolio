@@ -1,25 +1,26 @@
 <template>
     <div class="github-repos">
-        <div class="repos">
-            <carousel :items-to-show="1.5">
-                <slide v-for="repo in repos" :key="slide">
-                    <div :key="repo.id" class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ repo.name }}</h5>
-                            <p class="card-text">{{ repo.description }}</p>
-                            <a :href="repo.html_url" class="btn btn-primary">View on GitHub</a>
-                        </div>
-                    </div>
-                </slide>
-
-                <template #addons>
-                    <navigation />
-                    <pagination />
-                </template>
-            </carousel>
-        </div>
+      <div class="repos">
+        <carousel :items-to-show="1.5">
+          <slide v-for="repo in repos" :key="repo.id"> <!-- Use repo.id as the key -->
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ repo.name }}</h5>
+                <p class="card-text">{{ repo.description }}</p>
+                <a :href="repo.html_url" class="btn btn-primary">View on GitHub</a>
+              </div>
+            </div>
+          </slide>
+  
+          <template #addons>
+            <navigation />
+            <pagination />
+          </template>
+        </carousel>
+      </div>
     </div>
-</template>
+  </template>
+  
   
   
 <script>

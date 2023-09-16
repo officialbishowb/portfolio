@@ -13,24 +13,24 @@
       <div class="menu">
         <ul class="nav-links">
           <li>
-            <a href="/#" :class="{ active: isActive('/#') }" @click.native="setActive('/#')">
+            <a href="/#" :class="{ active: isActive('/#') }" v-on:click="setActive('/#')">
               home
             </a>
           </li>
           <li>
-            <a href="/#about" :class="{ active: isActive('/#about') }" @click.native="setActive('/#about')">about
+            <a href="/#about" :class="{ active: isActive('/#about') }" v-on:click="setActive('/#about')">about
             </a>
           </li>
           <li>
-            <a href="/#projects" :class="{ active: isActive('/#projects') }" @click.native="setActive('/#projects')">
+            <a href="/#projects" :class="{ active: isActive('/#projects') }" v-on:click="setActive('/#projects')">
               projects</a>
           </li>
           <li>
-            <a href="/#skills" :class="{ active: isActive('/#skills') }" @click.native="setActive('/#skills')">skills
+            <a href="/#skills" :class="{ active: isActive('/#skills') }" v-on:click="setActive('/#skills')">skills
             </a>
           </li>
           <li>
-            <a href="/#contact" :class="{ active: isActive('/#contact') }" @click.native="setActive('/#contact')">
+            <a href="/#contact" :class="{ active: isActive('/#contact') }" v-on:click="setActive('/#contact')">
               contact</a>
           </li>
         </ul>
@@ -166,7 +166,7 @@
 
 <script>
 export default {
-  name: 'Navbar',
+  name: 'NavbarComponent',
   data() {
     return {
       active: '/#',
@@ -181,6 +181,7 @@ export default {
       this.active = path;
       const navLinks = document.querySelector('.nav-links');
       navLinks.classList.remove('open');
+      this.changeTitle(path);
     },
     toggleMenus() {
       const navLinks = document.querySelector('.nav-links');
@@ -192,6 +193,29 @@ export default {
         this.isScrolling = true;
       } else {
         this.isScrolling = false;
+      }
+    },
+    changeTitle(pathName) {
+      const title = document.querySelector('title');
+      switch (pathName) {
+        case '/#':
+          title.innerHTML = 'Home | Portfolio';
+          break;
+        case '/#about':
+          title.innerHTML = 'About | Portfolio';
+          break;
+        case '/#projects':
+          title.innerHTML = 'Projects | Portfolio';
+          break;
+        case '/#skills':
+          title.innerHTML = 'Skills | Portfolio';
+          break;
+        case '/#contact':
+          title.innerHTML = 'Contact | Portfolio';
+          break;
+        default:
+          title.innerHTML = 'Bishow - Portfolio';
+          break;
       }
     },
 

@@ -19,6 +19,4 @@ import { faTwitter, faGithub, faTelegram, faInstagram} from '@fortawesome/free-b
 library.add(faUserSecret, faTwitter, faGithub, faTelegram, faInstagram)
 
 
-
-
 createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(router).mount('#app')

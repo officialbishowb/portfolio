@@ -8,7 +8,7 @@
           <div class="col-md-6">
 
 
-              <GithubReposCard/>
+              <GithubReposCardComponent/>
             
 
           </div>
@@ -21,12 +21,12 @@
 
 <script lang="ts">
 
-import GithubReposCard from '../components/GithubReposCard.vue';
+import GithubReposCardComponent from '../components/GithubReposCardComponent.vue';
 
 export default {
-  name: 'Projects',
+  name: 'ProjectsView',
   components: {
-    GithubReposCard
+    GithubReposCardComponent
   }
 
 

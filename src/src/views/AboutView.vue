@@ -39,13 +39,8 @@
 
 <script>
 
-import Navbar from '../components/Navbar.vue';
-
 export default {
-    name: 'About',
-    components: {
-        Navbar
-    },
+    name: 'AboutView',
     mounted() {
         this.displayAge();
     },

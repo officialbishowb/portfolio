@@ -1,6 +1,5 @@
 <template>
-    <form @submit.prevent="submitForm" name="contact-form" action="success">
-        <input type="hidden" name="form-name" value="contact-form">
+    <form  name="contact-officialbishowb-form" action="/success-form" data-netlify="true" method="POST">
         <div class="form-group">
             <input type="email" id="email" class="form-control" v-model="email" name="email" placeholder="Email" required>
         </div>
@@ -16,6 +15,7 @@
 
 
 <script>
+
 export default {
     name: "ContactForm",
     data() {
@@ -26,13 +26,7 @@ export default {
         };
     },
     methods: {
-        submitForm() {
-            console.log({
-                email: this.email,
-                subject: this.subject,
-                message: this.message,
-            });
-        },
+       
     },
 };
 </script>
@@ -62,6 +56,11 @@ button.submit{
     margin-top: 15px;
     background-color: var(--bb-accent-color);
     border: 1px solid var(--bb-accent-color);
+    color: var(--bb-background-color);
+}
+button.submit:hover{
+    background-color: var(--bb-second-accent-color);
+    border: 1px solid var(--bb-second-accent-color);
     color: var(--bb-background-color);
 }
 </style>

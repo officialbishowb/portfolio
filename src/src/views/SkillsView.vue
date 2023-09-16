@@ -6,7 +6,7 @@
       <h3 class="section-header">my skills</h3>
       <div class="project-content row mt-5 justify-content-center">
 
-            <SkillsCard/>
+            <SkillsCardComponent/>
 
 
       </div>
@@ -23,12 +23,12 @@
 
 <script>
 
-import SkillsCard from '../components/SkillsCard.vue';
+import SkillsCardComponent from '../components/SkillsCardComponent.vue';
 
 export default {
-  name: 'Skills',
+  name: 'SkillsView',
   components: {
-    SkillsCard
+    SkillsCardComponent
 },
 };
 </script>
