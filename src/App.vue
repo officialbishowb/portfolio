@@ -5,6 +5,7 @@ import ProjectsView from './views/ProjectsView.vue';
 import SkillsView from './views/SkillsView.vue';
 import ContactView from './views/ContactView.vue';
 import FooterView from './views/FooterView.vue';
+import ServiceView from './views/ServiceView.vue';
 </script>
 
 <template>
@@ -20,8 +21,12 @@ import FooterView from './views/FooterView.vue';
 
         <SkillsView />
 
+        <ServiceView />
+
 
         <ContactView />
+
+
 
         <FooterView />
 

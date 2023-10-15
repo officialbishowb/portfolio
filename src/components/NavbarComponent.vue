@@ -30,9 +30,14 @@
             </a>
           </li>
           <li>
+            <a href="/#services" :class="{ active: isActive('/#services') }" v-on:click="setActive('/#services')">
+              service</a>
+          </li>
+          <li>
             <a href="/#contact" :class="{ active: isActive('/#contact') }" v-on:click="setActive('/#contact')">
               contact</a>
           </li>
+       
         </ul>
 
 
