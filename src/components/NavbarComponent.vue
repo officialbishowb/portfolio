@@ -26,10 +26,6 @@
               projects</a>
           </li>
           <li>
-            <a href="/#skills" :class="{ active: isActive('/#skills') }" v-on:click="setActive('/#skills')">skills
-            </a>
-          </li>
-          <li>
             <a href="/#services" :class="{ active: isActive('/#services') }" v-on:click="setActive('/#services')">
               service</a>
           </li>
