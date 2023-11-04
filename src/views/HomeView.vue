@@ -1,4 +1,6 @@
 <template>
+  <PageLoading v-if="isLoading" />
+
   <!-- Header -->
   <NavbarComponents />
 
@@ -20,11 +22,12 @@
 <script>
 
 import NavbarComponents from '../components/NavbarComponent.vue';
-
+import PageLoading from '../components/PageLoading.vue';
 export default {
   name: 'HomeView',
   components: {
-    NavbarComponents
+    NavbarComponents,
+    PageLoading
   },
 };
 
