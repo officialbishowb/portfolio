@@ -9,9 +9,8 @@
 
                 <p style="text-justify: inter-word;">
                     My name is Bishow and I am <span class="age"></span> years old IT student. I spend mostly my free time
-                    learning new skills,
-                    hacking nasa or programming. Although I can do do frontend aswell as backend I like more backend as it
-                    is more interesting, and beside that I am not a good desginer :-(.
+                    learning new skills (in field like cybersecurity) and programming (leetcode & co). Although I am a fullstack developer, 
+                    I am more interested in backend development as I am not a big fan of frontend development. 
                     <br><br>
                     Talking about projects... I have many random projects on my <a
                         href='https://github.com/officialbishowb'>github</a>. They are mostly !useful projects
@@ -26,6 +25,7 @@
                     <a href="https://twitter.com/officialbishowb"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
                     <a href="https://instagram.com/officialbishowb"><font-awesome-icon icon="fa-brands fa-instagram" /></a>
                     <a href="https://t.me/officialbishowb"><font-awesome-icon icon="fa-brands fa-telegram" /></a>
+                    <a href="https://www.linkedin.com/in/bishowb/"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
 
                 </div>
 
