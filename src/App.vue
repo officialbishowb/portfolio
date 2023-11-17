@@ -56,6 +56,7 @@
   border: 2px solid var(--bb-second-accent-color);
   height: 30px;
   width: 30px;
+  transition: all 100ms ease-out;
   z-index: 9999;
 }
 
