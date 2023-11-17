@@ -59,6 +59,9 @@
   transition: all 100ms ease-out;
   z-index: 9999;
 }
+* {
+  cursor: none;
+}
 
 .cursor::after {
   content: "";
