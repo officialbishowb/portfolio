@@ -33,7 +33,6 @@
     mounted() {
       const cursor = document.getElementById("cursor");
   
-      // Add a mousemove event listener to the document body
       document.body.addEventListener("mousemove", (e) => {
         // Update the cursor's position based on the mouse coordinates
         cursor.style.left = e.clientX + "px";
@@ -57,7 +56,6 @@
   border: 2px solid var(--bb-second-accent-color);
   height: 30px;
   width: 30px;
-  transition: all 300ms ease-out;
   z-index: 9999;
 }
 

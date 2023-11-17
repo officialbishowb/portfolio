@@ -25,7 +25,7 @@
                     <a href="https://twitter.com/officialbishowb"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
                     <a href="https://instagram.com/officialbishowb"><font-awesome-icon icon="fa-brands fa-instagram" /></a>
                     <a href="https://t.me/officialbishowb"><font-awesome-icon icon="fa-brands fa-telegram" /></a>
-                    <a href="https://www.linkedin.com/in/bishowb/"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
+                    <a href="https://www.linkedin.com/in/bishowb/"><font-awesome-icon icon="fa-brands fa-linkedin"/></a>
 
                 </div>
 
