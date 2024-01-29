@@ -39,7 +39,7 @@ export default {
 
 <style scoped>
 .home-content {
-  margin-top: 180px;
+  padding-top: 180px;
   text-align: center;
   justify-content: center;
   margin-bottom: 180px 10px 0 10px;

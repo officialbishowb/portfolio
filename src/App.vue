@@ -48,8 +48,6 @@
   border-radius: 50%;
   transform: translateX(-50%) translateY(-50%);
   pointer-events: none;
-  left: -100px;
-  top: 50%;
   mix-blend-mode: difference;
   background-color: transparent;
   z-index: 10000;
@@ -57,11 +55,8 @@
   height: 30px;
   width: 30px;
   transition: all 100ms ease-out;
-  z-index: 9999;
 }
-* {
-  cursor: none;
-}
+
 
 .cursor::after {
   content: "";
