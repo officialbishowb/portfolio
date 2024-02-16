@@ -55,6 +55,7 @@
   height: 30px;
   width: 30px;
   transition: all 100ms ease-out;
+  cursor:none;
 }
 
 
