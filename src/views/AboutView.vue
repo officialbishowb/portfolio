@@ -14,7 +14,7 @@
                     <br><br>
                     Talking about projects... I have many random projects on my <a
                         href='https://github.com/officialbishowb'>github</a>. They are mostly !useful projects
-                    that can make your life !bettter. So don't forget to have a look on it. At last, beside doing IT stuff, I also try to be more physically active by going to gym.
+                    that can make your life !bettter. So don't forget to have a look on it. At last, beside doing IT stuff, I also try to be more physically active by going to the gym.
                     <br><br>
                     Well, these are all basic infos.. about me.
                 </p>
