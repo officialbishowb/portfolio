@@ -43,6 +43,9 @@
   </script>
   
   <style>
+  *{
+    cursor:none;
+  }
  .cursor {
   position: fixed;
   border-radius: 50%;
@@ -58,6 +61,15 @@
   cursor:none;
 }
 
+
+@media screen and (max-width: 768px){
+  .cursor {
+    display: none;
+  }
+  *{
+    cursor:default;
+  }
+}
 
 .cursor::after {
   content: "";
