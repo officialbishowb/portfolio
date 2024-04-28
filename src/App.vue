@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-      <div class="cursor" id="cursor"></div>
       <HomeView />
       <AboutView />
       <ProjectsView />
@@ -30,57 +29,14 @@
       ServiceView,
     },
 
-    mounted() {
-      const cursor = document.getElementById("cursor");
-  
-      document.body.addEventListener("mousemove", (e) => {
-        // Update the cursor's position based on the mouse coordinates
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
-      });
-    },
+    
   };
   </script>
   
   <style>
-  *{
-    cursor:none;
-  }
- .cursor {
-  position: fixed;
-  border-radius: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  pointer-events: none;
-  mix-blend-mode: difference;
-  background-color: transparent;
-  z-index: 10000;
-  border: 2px solid var(--bb-second-accent-color);
-  height: 30px;
-  width: 30px;
-  transition: all 100ms ease-out;
-  cursor:none;
-}
 
 
-@media screen and (max-width: 768px){
-  .cursor {
-    display: none;
-  }
-  *{
-    cursor:default;
-  }
-}
 
-.cursor::after {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: var(--bb-accent-color);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+
   </style>
   
