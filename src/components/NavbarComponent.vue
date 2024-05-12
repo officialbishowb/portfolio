@@ -33,6 +33,11 @@
             <a href="/#contact" :class="{ active: isActive('/#contact') }" v-on:click="setActive('/#contact')">
               contact</a>
           </li>
+
+          <li>
+            <a href="https://blog.officialbishowb.com/" class="redirect" target="_blank" rel="noopener noreferrer">
+              blog</a>
+          </li>
        
         </ul>
 
@@ -62,6 +67,14 @@
   align-items: center;
   transition: all 0.3s ease;
   background-color: var(--bb-background-color);
+}
+
+.redirect::after {
+  content: '↗';
+  font-size: 0.8em;
+  margin-top: 0.2rem;
+  margin-left: .5rem;
+  color: var(--bb-text-color-light);
 }
 
 
