@@ -9,12 +9,13 @@
 
                 <p style="text-justify: inter-word;">
                     My name is Bishow and I am <span class="age"></span> years old IT student. I spend mostly my free time
-                    learning new skills (in field like cybersecurity) and programming (leetcode & co). Although I am a fullstack developer, 
-                    I am more interested in backend development as I am not a big fan of frontend development. 
+                    learning new skills /  technology. Although I am kind of a fullstack developer (interface + logic(APIs etc)),
+                    I am more interested in backend development (APIs, databases, etc).
                     <br><br>
                     Talking about projects... I have many random projects on my <a
                         href='https://github.com/officialbishowb'>github</a>. They are mostly !useful projects
-                    that can make your life !bettter. So don't forget to have a look on it. At last, beside doing IT stuff, I also try to be more physically active by going to the gym.
+                    that can make your life !bettter. So don't forget to have a look on it. 
+                    Ultimately, beside doing IT stuffs, I try to be more physically active by going to gym.
                     <br><br>
                     Well, these are all basic infos.. about me.
                 </p>
@@ -22,10 +23,11 @@
                 <div class="social-medias">
 
                     <a href="https://github.com/officialbishowb"><font-awesome-icon icon="fa-brands fa-github" /></a>
-                    <a href="https://twitter.com/officialbishowb"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
+                    <!-- <a href="https://twitter.com/officialbishowb"><font-awesome-icon icon="fa-brands fa-twitter" /></a> -->
                     <a href="https://instagram.com/officialbishowb"><font-awesome-icon icon="fa-brands fa-instagram" /></a>
                     <a href="https://t.me/officialbishowb"><font-awesome-icon icon="fa-brands fa-telegram" /></a>
-                    <a href="https://www.linkedin.com/in/bishowb/"><font-awesome-icon icon="fa-brands fa-linkedin"/></a>
+                    <a href="https://www.linkedin.com/in/bishowb/"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
+
 
                 </div>
 
@@ -38,6 +40,7 @@
 
 
 <script>
+
 
 export default {
     name: 'AboutView',

@@ -25,10 +25,10 @@
             <a href="/#projects" :class="{ active: isActive('/#projects') }" v-on:click="setActive('/#projects')">
               projects</a>
           </li>
-          <li>
+          <!-- <li v-if="ServiceView
             <a href="/#services" :class="{ active: isActive('/#services') }" v-on:click="setActive('/#services')">
               service</a>
-          </li>
+          </li> -->
           <li>
             <a href="/#contact" :class="{ active: isActive('/#contact') }" v-on:click="setActive('/#contact')">
               contact</a>
@@ -179,6 +179,8 @@
   
 
 <script>
+
+
 export default {
   name: 'NavbarComponent',
   data() {

@@ -13,10 +13,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import all the icons you want to use */
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faGithub, faTelegram, faInstagram} from '@fortawesome/free-brands-svg-icons'
+import { faTwitter, faGithub, faTelegram, faInstagram, faLinkedin} from '@fortawesome/free-brands-svg-icons'
 
 /* add icons to the library */
-library.add(faUserSecret, faTwitter, faGithub, faTelegram, faInstagram)
+library.add(faUserSecret, faTwitter, faGithub, faTelegram, faInstagram, faLinkedin)
 
 
 createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(router).mount('#app')

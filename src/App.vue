@@ -10,6 +10,8 @@
   </template>
   
   <script>
+
+
   import HomeView from './views/HomeView.vue';
   import AboutView from './views/AboutView.vue';
   import ProjectsView from './views/ProjectsView.vue';
