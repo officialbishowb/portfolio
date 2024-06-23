@@ -15,7 +15,7 @@
                     Talking about projects... I have many random projects on my <a
                         href='https://github.com/officialbishowb'>github</a>. They are mostly !useful projects
                     that can make your life !bettter. So don't forget to have a look on it. 
-                    Ultimately, beside doing IT stuffs, I try to be more physically active by going to gym.
+                    Ultimately, beside doing IT stuffs, I try to be more physically active by going to gym many times a week.
                     <br><br>
                     Well, these are all basic infos.. about me.
                 </p>
