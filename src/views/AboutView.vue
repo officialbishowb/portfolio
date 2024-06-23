@@ -10,8 +10,8 @@
                 <p style="text-justify: inter-word;">
                     My name is Bishow and I am <span class="age"></span> years old. I spend mostly my free time
                     learning new skills /  technology. Although I am kind of a fullstack developer (interface + logic(APIs etc)),
-                    I am more interested in backend development (APIs, databases, etc).
-                    <br><br>
+                    I am more interested in backend development (APIs, databases, etc). Apart from development, I really like cyber security, which is also a big reason 
+                    why I am interested generally in IT.
                     Talking about projects... I have many random projects on my <a
                         href='https://github.com/officialbishowb'>github</a>. They are mostly !useful projects
                     that can make your life !bettter. So don't forget to have a look on it. 
