@@ -8,7 +8,7 @@
             <div class="col-md-6">
 
                 <p style="text-justify: inter-word;">
-                    My name is Bishow and I am <span class="age"></span> years old IT student. I spend mostly my free time
+                    My name is Bishow and I am <span class="age"></span> years old. I spend mostly my free time
                     learning new skills /  technology. Although I am kind of a fullstack developer (interface + logic(APIs etc)),
                     I am more interested in backend development (APIs, databases, etc).
                     <br><br>
