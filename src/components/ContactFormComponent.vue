@@ -1,5 +1,9 @@
 <template>
-    <form  name="contact-officialbishowb-form" data-netlify="true" method="POST" netlify-honeypot="bot-field">
+    <form name="contact-officialbishowb-form" data-netlify="true" method="POST" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact-officialbishowb-form">
+        <p class="hidden">
+            <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+        </p>
         <div class="form-group">
             <input type="email" id="email" class="form-control" v-model="email" name="email" placeholder="Email" required>
         </div>
@@ -12,8 +16,6 @@
         <button type="submit" class="btn btn-primary submit">Send</button>
     </form>
 </template>
-
-
 <script>
 
 export default {
