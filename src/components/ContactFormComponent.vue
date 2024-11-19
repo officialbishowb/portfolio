@@ -65,7 +65,5 @@ button.submit:hover{
     border: 1px solid var(--bb-second-accent-color);
     color: var(--bb-background-color);
 }
-.hidden{
-    display: none;
-}
+
 </style>

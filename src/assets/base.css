@@ -74,3 +74,7 @@ a:hover {
 .bold {
   font-family: var(--bb-bold-font);
 }
+
+.hidden {
+  display: none;
+}
