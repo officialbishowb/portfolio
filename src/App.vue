@@ -8,10 +8,8 @@
       <FooterView />
     </div>
   </template>
-  
-  <script defer data-website-id="674631df00b6563628e9c86c" data-domain="officialbishowb.com" src="https://datafa.st/js/script.js"></script>
 
-  
+
   <script>
 
   import HomeView from './views/HomeView.vue';
@@ -21,8 +19,6 @@
   import FooterView from './views/FooterView.vue';
   import ServiceView from './views/ServiceView.vue';
 
-
-  
   export default {
     components: {
       HomeView,
@@ -32,11 +28,16 @@
       FooterView,
       ServiceView,
     },
-
-    
+    mounted() {
+      const script = document.createElement('script');
+      script.defer = true;
+      script.setAttribute('data-website-id', '674631df00b6563628e9c86c');
+      script.setAttribute('data-domain', 'officialbishowb.com');
+      script.src = 'https://datafa.st/js/script.js';
+      document.head.appendChild(script);
+    }
   };
   </script>
-  
   <style>
 
 
