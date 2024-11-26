@@ -9,8 +9,10 @@
     </div>
   </template>
   
+  <script defer data-website-id="674631df00b6563628e9c86c" data-domain="officialbishowb.com" src="https://datafa.st/js/script.js"></script>
+
+  
   <script>
-<script defer data-website-id="674631df00b6563628e9c86c" data-domain="officialbishowb.com" src="https://datafa.st/js/script.js"></script>
 
   import HomeView from './views/HomeView.vue';
   import AboutView from './views/AboutView.vue';
