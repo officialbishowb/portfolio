@@ -5,7 +5,7 @@
         <h3 class="section-header">contact me</h3>
         <div class="project-content row mt-5 justify-content-center">
 
-            <div class="col-md-6">
+            <div class="col-md-10">
                 <ContactFormComponent />
             </div>
 

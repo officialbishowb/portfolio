@@ -148,12 +148,13 @@
     background-color: var(--bb-background-color);
     align-items: center;
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     position: absolute;
-    top: 50px;
+    top: 40px;
     left: 0;
     z-index: -1;
     transition: all 0.5s ease;
+    box-shadow: 0px 1px 1px 0px #222222;
   }
 
   .navbar .menu .hamburger {
@@ -174,6 +175,11 @@
   .navbar .menu ul li a {
     font-size: 1.6em;
   }
+
+  .nav-links.open {
+    z-index: 999;
+  }
+  
 }
 </style>
   

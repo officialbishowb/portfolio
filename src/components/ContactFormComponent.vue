@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="sendMessage">
+    <form @submit.prevent="sendMessage" class="contact-form">
         <div class="form-group">
             <input type="email" id="email" class="form-control" v-model="email" name="email" placeholder="Email" required>
         </div>
@@ -16,8 +16,6 @@
 
 <script>
 import axios from "axios";
-
-
 
 export default {
     name: "ContactForm",
@@ -63,6 +61,11 @@ export default {
 </script>
 
 <style scoped>
+.contact-form {
+    width: 80%;
+    margin: 0 auto;
+}
+
 .form-control {
     background-color: var(--bb-background-color);
     border: 1px solid var(--bb-accent-color);

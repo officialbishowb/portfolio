@@ -5,9 +5,9 @@
         <h3 class="section-header">about me</h3>
         <div class="about-content row mt-5 justify-content-center">
 
-            <div class="col-md-6">
+            <div class="col-md-10">
 
-                <p style="text-justify: inter-word;">
+                <p class="about-me-text">
                     My name is Bishow and I am <span class="age"></span> years old. I spend mostly my free time
                     learning new skills /  technology. Although I am kind of a fullstack developer (interface + logic(APIs etc)),
                     I am more interested in backend development (APIs, databases, etc). Apart from development, I really like cyber security, which is also a big reason 
@@ -72,5 +72,13 @@ export default {
     gap: 20px;
     margin-top: 20px;
     font-size: 2em;
+
 }
+
+.about-me-text {
+    font-size: 1.1em;
+    line-height: 1.4;
+    text-align: justify;
+}
+
 </style>
