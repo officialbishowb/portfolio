@@ -29,3 +29,6 @@ coverage
 
 # Secret files
 .env
+
+
+.next
