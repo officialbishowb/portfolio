@@ -4,16 +4,24 @@
 
 :root {
   --background: #ffffff;
+  --gray: #363540;
+  --light-gray: #75747a;
   --foreground: #090909;
-  --second-background: #a0a0a0;
+  --accent-color: #A7EBCB;
+  --border-radius: 0.75rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #090909;
     --foreground: #ffffff;
-    --second-background: #a0a0a0;
+    --gray: #363540;
+    --light-gray: #75747a;
   }
+}
+
+html {
+ scroll-behavior: smooth;
 }
 
 body {
@@ -108,5 +116,19 @@ label {
   font-family: 'LeagueSpartan-Bold', sans-serif;
 }
 
+.highlight {
+  color: var(--accent-color);
+  background: var(--gray);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.text-underline {
+  border-bottom: 2px solid var(--accent-color);
+}
 
 
+::selection {
+  background: var(--accent-color);
+  color: var(--background);
+}

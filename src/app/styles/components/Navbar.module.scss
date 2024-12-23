@@ -1,6 +1,6 @@
 .navItem {
     padding: 0.5rem 1rem;
-    border-radius: 0.75rem;
+    border-radius: var(--border-radius);
     border: 2px solid transparent; 
     transition: background-color 0.3s, border 0.3s;
 
@@ -14,5 +14,5 @@
     background-color: #363540; 
     color: white;
     font-weight: bold; 
-    border-radius: 0.75rem;
+    border-radius: var(--border-radius);
 }

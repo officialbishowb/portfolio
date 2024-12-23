@@ -1,0 +1,13 @@
+.socialLink{
+    background-color: var(--background);
+    color: white;
+    font-weight: bold; 
+    border-radius: var(--border-radius);
+    padding: 0.2rem .7rem;
+    border: 2px solid var(--foreground);
+
+    &:hover {
+        background-color: var(--gray);
+        transition: background-color 0.3s;
+    }
+}

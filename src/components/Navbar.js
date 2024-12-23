@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import styles from '@/components/Navbar.module.scss';
+import styles from '@/app/styles/components/Navbar.module.scss';
 import { FaRegUserCircle ,FaExternalLinkSquareAlt  , FaEnvelope, FaBlog, FaProjectDiagram } from 'react-icons/fa';
 import { IoHomeOutline } from "react-icons/io5";
 const Navbar = () => {
@@ -35,21 +35,22 @@ const Navbar = () => {
                         </div>
                     </Link>
                 </li>
-                <li>
-                    <Link href="https://blog.officialbishowb.com">
-                        <div className={`${styles.navItem} text-white flex flex-row items-center space-x-2`}>
-                            <FaBlog />
-                            <p className="hidden sm:block relative">Blog
-                                <FaExternalLinkSquareAlt className="absolute top-[-8px] right-[-15px] text-[.7rem] text-white" />
-                            </p>
-                        </div>
-                    </Link>
-                </li>
+                
                 <li>
                     <Link href="/#contact">
                         <div className={`${styles.navItem} ${pathname === '/#contact' ? styles.navItemSelected : ''} text-white flex flex-row items-center space-x-2`}>
                             <FaEnvelope />
                             <p className="hidden sm:block">Contact</p>
+                        </div>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="https://blog.officialbishowb.com" target="_blank" rel="noopener noreferrer">
+                        <div className={`${styles.navItem} text-white flex flex-row items-center space-x-2`}>
+                            <FaBlog />
+                            <p className="hidden sm:block relative">Blog
+                                <FaExternalLinkSquareAlt className="absolute top-[-8px] right-[-15px] text-[.7rem] text-white" />
+                            </p>
                         </div>
                     </Link>
                 </li>
