@@ -11,7 +11,13 @@ const Contact = () => {
                Contact Me
             </h1>
 
-            <form className="w-full max-w-lg" netlify>
+            <form className="w-full max-w-lg" netlify-honeypot="bot-field" data-netlify="true" id="contact-form">
+            <p hidden>
+                <label>
+                Don’t fill this out if you’re human: <input name="bot-field" />
+                </label>
+            </p>
+            
                 <div className="flex flex-wrap -mx-3 mb-6">
                     <div className="w-full px-3 mb-6 md:mb-0">
                         <label className="block uppercase tracking-wide text-xs font-bold mb-2" htmlFor="name" style={{ color: "var(--foreground)" }}>

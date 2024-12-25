@@ -19,10 +19,19 @@ const ContactFormButton = () => {
             body: new URLSearchParams(formData).toString()
         })
         .then(() => {
-           response.innerHTML = '<p class="text-md text-green-500" id="message">Form successfully submitted</p>';
+            response.innerHTML = `<p class="text-md text-green-500" id="message">Form submitted successfully!</p>`;
+
+            setTimeout(() => {
+                response.innerHTML = '';
+            }, 5000);
+
         })
         .catch(error => {
             response.innerHTML = `<p class="text-md text-red-500" id="message">Error submitting form: ${error}</p>`;
+
+            setTimeout(() => {
+                response.innerHTML = '';
+            }, 5000);
         });
 
     
