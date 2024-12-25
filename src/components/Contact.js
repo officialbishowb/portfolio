@@ -19,6 +19,14 @@ const Contact = () => {
             return;
         }
 
+        // Validate email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            responseElement.innerHTML = "Please enter a valid email address.";
+            responseElement.style.color = "red";
+            return;
+        }
+
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
