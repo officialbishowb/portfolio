@@ -15,7 +15,7 @@ const About = () => {
             <h1 className="text-4xl font-bold mb-8 text-underline">
                 About Me
             </h1>
-            <div className="flex flex-col 2xl:flex-row items-center p-8 rounded-lg shadow-lg sm:max-w-[80%] max-w-[90%]">
+            <div className="flex flex-col 2xl:flex-row items-center p-8 rounded-lg shadow-lg sm:max-w-[80%] max-w-[98%]">
                 <div className="flex-1 flex justify-center mr-0 2xl:mr-[-5rem]">
                     <Image
                         src="https://avatars.githubusercontent.com/u/55999477?v=4"
