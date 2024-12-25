@@ -56,10 +56,10 @@ const About = () => {
                         I&apos;m also super into cybersecurity, which is a big part of why I chose to study IT in the first place. 
                         </span> <br /> <br />
                         <span>
-                            As for projects, I’ve got a bunch of random ones on my <a href="https://github.com/officialbishowb"  target="_blank" rel="noopener noreferrer" className='text-underline'>GitHub</a>. They&apos;re mostly small, useful tools that can make life a bit easier, so definitely check them out if you&apos;re interested!                        </span>
+                            As for projects, I’ve got a bunch of random ones on my <a href="https://github.com/officialbishowb"  target="_blank" rel="noopener noreferrer" className='text-underline'>GitHub</a>. They&apos;re mostly small, !useful tools that can make life a bit easier (?), so definitely check them out if you&apos;re interested!                        </span>
                         <br /> 
                         <span>
-                        When I&apos;m not coding, I try to stay active and hit the gym a few times a week to keep the balance.
+                        When I&apos;m not coding, I try to stay active and hit the gym a few times a week to build my strength and endurance.
                         </span>
                         <br /><br />
                         <span>Well, these are all basic infos about me. </span>
