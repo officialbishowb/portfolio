@@ -8,14 +8,13 @@ import { FaRegUserCircle, FaExternalLinkSquareAlt, FaEnvelope, FaBlog, FaProject
 import { IoHomeOutline } from "react-icons/io5";
 
 const Navbar = () => {
-    const [hydratedPathname, setHydratedPathname] = useState('');
-    const pathname = usePathname();
+
 
 
     const navItems = [
         { href: '/', label: 'Home', icon: <IoHomeOutline /> },
         { href: '/#about', label: 'About', icon: <FaRegUserCircle /> },
-        { href: '/#projects', label: 'Projects', icon: <FaProjectDiagram /> },
+        // { href: '/#projects', label: 'Projects', icon: <FaProjectDiagram /> },
         { href: '/#contact', label: 'Contact', icon: <FaEnvelope /> },
         { href: 'https://blog.officialbishowb.com', label: 'Blog', icon: <FaBlog />, external: true },
     ];

@@ -27,7 +27,7 @@ const About = () => {
                 </div>
                 <div className="flex-1 mt-10 2xl:mt-0">
                     <div className="text-[3rem] font-bold">Bishow</div>
-                    <div className='social-link flex flex-row mb-4 space-x-4'>
+                    <div className='social-link flex flex-col sm:flex-row mb-4 space-y-4 sm:space-y-0 sm:space-x-4'>
 
                         <a href="https://github.com/officialbishowb" target="_blank" rel="noopener noreferrer" className={`${styles.socialLink} flex items-center justify-center`}>
                             <FaGithub size={20} className="mr-2" />
