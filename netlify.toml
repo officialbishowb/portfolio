@@ -1,0 +1,11 @@
+[build]
+  command = "next build"
+  publish = "out"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[forms]]
+  name = "contact-form"
+  action = "/form-submission"
+  method = "POST"

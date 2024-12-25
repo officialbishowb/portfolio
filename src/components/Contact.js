@@ -16,7 +16,7 @@ const Contact = () => {
                 name="contact"
                 method="POST"
                 data-netlify="true"
-                action="/form-success"
+                action="/form-submission"
             >
 
                 <input type="hidden" name="form-portfolio_web" value="contact" />
