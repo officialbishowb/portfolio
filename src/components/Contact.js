@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import ContactFormButton from '@/components/ContactFormButton';
+import { CiLocationArrow1 } from "react-icons/ci";
 
 const Contact = () => {
 
@@ -11,15 +12,14 @@ const Contact = () => {
                 Contact Me
             </h1>
 
-            <form
-                className="w-full max-w-lg"
+            <form className="w-full max-w-lg"
                 name="contact"
                 method="POST"
                 data-netlify="true"
-                onSubmit="submitForm(event)"
+                action="/form-success"
             >
 
-<input type="hidden" name="form-portfolio_web" value="contact" />
+                <input type="hidden" name="form-portfolio_web" value="contact" />
 
                 <div className="flex flex-wrap -mx-3 mb-6">
                     <div className="w-full px-3 mb-6 md:mb-0">
@@ -49,7 +49,14 @@ const Contact = () => {
                 </div>
                 <div className="flex items-center justify-between">
                     <div>
-                        <ContactFormButton />
+                        <button
+                            className="flex items-center text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            type="submit"
+                            style={{ background: "var(--accent-color)", borderRadius: "var(--border-radius)" }}
+                        >
+                            Send
+                            <CiLocationArrow1 className="ml-2 text-xl cursor-pointer" />
+                        </button>
                     </div>
                 </div>
             </form>
