@@ -18,11 +18,11 @@ const About = () => {
             <div className="flex flex-col 2xl:flex-row items-center p-8 rounded-lg shadow-lg sm:max-w-[80%] max-w-[90%]">
                 <div className="flex-1 flex justify-center mr-0 2xl:mr-[-5rem]">
                     <Image
-                        src="https://placehold.co/200x200"
+                        src="https://avatars.githubusercontent.com/u/55999477?v=4"
                         alt="Profile Picture"
                         width={200}
                         height={200}
-                        className="rounded-full"
+                        className="rounded-full border border-foreground"
                     />
                 </div>
                 <div className="flex-1 mt-10 2xl:mt-0">
