@@ -47,24 +47,25 @@ const About = () => {
 
                     </div>
                     <p className="text-left text-lg">
-                        <span>
-                            My name is Bishow and I am <span className='text-underline'>{age}</span> years old.
-                            I spend a lot of my free time learning new skills and exploring cool technologies. While I&apos;m into full-stack development (working on both the frontend and backend), my real passion is backend stuff — like working with APIs, databases, and building systems that can scale.
-                        </span>
-                        <br />
-                        <span>
-                        I&apos;m also super into cybersecurity, which is a big part of why I chose to study IT in the first place. 
-                        </span> <br /> <br />
-                        <span>
-                            As for projects, I’ve got a bunch of random ones on my <a href="https://github.com/officialbishowb"  target="_blank" rel="noopener noreferrer" className='text-underline'>GitHub</a>. They&apos;re mostly small, !useful tools that can make life a bit easier (?), so definitely check them out if you&apos;re interested!                        </span>
-                        <br /> 
-                        <span>
-                        When I&apos;m not coding, I try to stay active and hit the gym a few times a week to build my strength and endurance.
-                        </span>
-                        <br /><br />
-                        <span>Well, these are all basic infos about me. </span>
+    <span>
+        My name is Bishow, and I&apos;m a tech enthusiast with a passion for backend development — APIs, databases, and scalable systems are my main focus.
+    </span>
+    <br />
+    <span>
+        I&apos;m also keen on cybersecurity, which was also the big reason I got interested in general IT and programming.
+    </span>
+    <br /><br />
+    <span>
+        You can check out some of my projects on <a href="https://github.com/officialbishowb" target="_blank" rel="noopener noreferrer" className="text-underline">GitHub</a>. They include small !useful projects, I did and probably did not finished 😅.
+    </span>
+    <br />
+    <span>
+        Outside of coding, I enjoy staying active and working on my fitness.
+    </span>
+    <br /><br />
+    <span>Well that&apos;s enough about me :)</span>
+</p>
 
-                    </p>
 
                 </div>
             </div>
