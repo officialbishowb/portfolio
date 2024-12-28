@@ -3,7 +3,7 @@
 My personal website built with Vue.js.
 
 
-This branch is the development branch. The master branch is the production branch.
+This branch contains the old version of my website. The new version is in the `main` branch.
 
 
 ## Status
