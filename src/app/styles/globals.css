@@ -20,6 +20,15 @@
   }
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff;
+    --foreground: #090909;
+    --gray: #363540;
+    --light-gray: #75747a;
+  }
+}
+
 html {
  scroll-behavior: smooth;
 }
