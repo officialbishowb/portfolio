@@ -26,13 +26,13 @@ const Navbar = () => {
                     <li key={item.href}>
                         <Link href={item.href} target={item.external ? '_blank' : '_self'} rel="noopener noreferrer">
                             <div
-                                className={`${styles.navItem} text-white flex flex-row items-center space-x-2`}
+                                className={`${styles.navItem} text-foreground flex flex-row items-center space-x-2`}
                             >
                                 {item.icon}
                                 <p className="relative">
                                     <span className="hidden sm:block">{item.label}</span>
                                     <FaExternalLinkSquareAlt
-                                        className={`${item.external ? '' : 'hidden'} absolute top-[-8px] right-[-15px] text-[.7rem] text-white`}
+                                        className={`${item.external ? '' : 'hidden'} absolute top-[-8px] right-[-15px] text-[.7rem] text-foreground`}
                                     />
                                 </p>
                             </div>

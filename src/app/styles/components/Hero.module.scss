@@ -1,8 +1,8 @@
 .heroBtn {
     background-color: var(--accent-color);
-    color: #fff;
+    color: var(--background);
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: var(--border-radius);
     cursor: pointer;
     display: inline-flex;
@@ -11,10 +11,14 @@
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     &:hover {
         background-color: var(--background);
-        box-shadow: 0 0 10px var(--accent-color);
+        color: var(--accent-color);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
     }
 
     .heroBtnIcon {
@@ -23,11 +27,27 @@
         justify-content: center;
         opacity: 0;
         margin-left: 0;
-        transition: opacity 0.3s ease, margin-left 0.3s ease;
+        transition: all 0.3s ease;
     }
 
     &:hover .heroBtnIcon {
         opacity: 1;
         margin-left: 10px;
+        transform: translateX(4px);
+    }
+}
+
+.highlight {
+    color: var(--accent-color);
+    background: var(--gray);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 }

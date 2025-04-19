@@ -66,41 +66,66 @@ const Contact = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen px-8 overflow-y-auto" id="contact" style={{ background: "var(--background)", color: "var(--foreground)" }}>
-            <h1 className="text-4xl font-bold mb-8 underline">Contact Me</h1>
-            <form className="w-full max-w-lg" onSubmit={handleSubmit}>
-                <div className="flex flex-wrap -mx-3 mb-6">
-                    <div className="w-full px-3 mb-6 md:mb-0">
+            <h1 className="text-4xl font-bold mb-8 relative inline-block">
+                Contact Me
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-accent transform -translate-y-1"></span>
+            </h1>
+            <form className="w-full max-w-lg space-y-6" onSubmit={handleSubmit}>
+                <div className="flex flex-wrap -mx-3">
+                    <div className="w-full px-3">
                         <label className="block uppercase tracking-wide text-xs font-bold mb-2" htmlFor="name" style={{ color: "var(--foreground)" }}>
                             Name
                         </label>
-                        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white text-background" id="name" name="name" type="text" placeholder="Your Name" />
+                        <input 
+                            className="appearance-none block w-full bg-background text-foreground border border-gray rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-accent transition-all duration-300" 
+                            id="name" 
+                            name="name" 
+                            type="text" 
+                            placeholder="Your Name"
+                        />
                     </div>
                 </div>
-                <div className="flex flex-wrap -mx-3 mb-6">
+                <div className="flex flex-wrap -mx-3">
                     <div className="w-full px-3">
                         <label className="block uppercase tracking-wide text-xs font-bold mb-2" htmlFor="email" style={{ color: "var(--foreground)" }}>
                             Email
                         </label>
-                        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white text-background" id="email" name="email" type="email" placeholder="Your Email" />
+                        <input 
+                            className="appearance-none block w-full bg-background text-foreground border border-gray rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-accent transition-all duration-300" 
+                            id="email" 
+                            name="email" 
+                            type="email" 
+                            placeholder="Your Email"
+                        />
                     </div>
                 </div>
-                <div className="flex flex-wrap -mx-3 mb-6">
+                <div className="flex flex-wrap -mx-3">
                     <div className="w-full px-3">
                         <label className="block uppercase tracking-wide text-xs font-bold mb-2" htmlFor="message" style={{ color: "var(--foreground)" }}>
                             Message
                         </label>
-                        <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white text-background" id="message" name="message" rows="5" placeholder="Your Message"></textarea>
+                        <textarea 
+                            className="appearance-none block w-full bg-background text-foreground border border-gray rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-accent transition-all duration-300" 
+                            id="message" 
+                            name="message" 
+                            rows="5" 
+                            placeholder="Your Message"
+                        ></textarea>
                     </div>
                 </div>
                 <button
-                    className="flex items-center text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    className="flex items-center justify-center w-full text-background font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transition-all duration-300 hover:transform hover:-translate-y-1"
                     type="submit"
-                    style={{ background: "var(--accent-color)", borderRadius: "var(--border-radius)" }}
+                    style={{ 
+                        background: "var(--accent-color)",
+                        borderRadius: "var(--border-radius)",
+                        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)"
+                    }}
                 >
-                    Send
-                    <CiLocationArrow1 className="ml-2 text-xl cursor-pointer" />
+                    Send Message
+                    <CiLocationArrow1 className="ml-2 text-xl" />
                 </button>
-                <p id="result" className="text-md text-center mt-4"></p>
+                <p id="result" className="text-center mt-4 transition-all duration-300"></p>
             </form>
         </div>
     );
