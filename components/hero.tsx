@@ -6,7 +6,8 @@ export default function Hero() {
     <section id="home" className="pt-32 pb-16 md:pt-40 md:pb-24">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-6 max-w-lg mx-auto md:mx-0">
+          <div className="space-y-6 max-w-lg mx-auto md:mx-0 relative">
+           
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-center md:text-left">
               Hi, I'm <span className="text-primary">Bishow</span>
             </h1>
@@ -52,12 +53,13 @@ export default function Hero() {
                 <Instagram className="h-6 w-6" />
               </a>
             </div>
+            <div className="absolute -right-[15rem] top-1/2 -translate-y-1/2 hidden md:block">
+              <div className="w-32 h-32 bg-primary/20 rounded-full animate-pulsate"></div>
+              <div className="w-24 h-24 bg-primary/30 rounded-full animate-pulsate [animation-delay:1s] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="w-16 h-16 bg-primary/40 rounded-full animate-pulsate [animation-delay:2s] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+            </div>
           </div>
-          <div className="relative aspect-square max-w-md mx-auto">
-            <div className="absolute inset-0 bg-primary/20 rounded-full animate-pulsate"></div>
-            <div className="absolute inset-4 bg-primary/30 rounded-full animate-pulsate [animation-delay:1s]"></div>
-            <div className="absolute inset-8 bg-primary/40 rounded-full animate-pulsate [animation-delay:2s]"></div>
-          </div>
+          
         </div>
       </div>
     </section>

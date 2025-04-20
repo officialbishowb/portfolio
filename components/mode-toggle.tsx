@@ -24,9 +24,7 @@ export function ModeToggle() {
         <DropdownMenuItem onClick={() => setTheme("dark")}>
           <Moon className="h-4 w-4 mr-2" /> Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          <span className="h-4 w-4 mr-2 flex items-center justify-center">💻</span> System
-        </DropdownMenuItem>
+
       </DropdownMenuContent>
     </DropdownMenu>
   )
