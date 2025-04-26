@@ -19,13 +19,10 @@ export default function Header() {
     setMounted(true)
   }, [])
 
-  if (!mounted) return null
-
   useEffect(() => {
-  const handleScroll = () => {
-    setScrolled(window.scrollY > 10)
-  }
-
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10)
+    }
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -52,13 +49,15 @@ export default function Header() {
     >
       <div className="container flex items-center justify-between h-16 md:h-20">
         <Link href="/" className="text-xl font-bold">
-          <Image 
-            src={mounted && theme === "dark" ? "/assets/images/bishowb_logo_dark.png" : "/assets/images/bishowb_logo_light.png"} 
-            alt="Logo" 
-            width={150} 
-            height={150}
-            className="h-8 w-auto"
-          />
+          {mounted && (
+            <Image 
+              src={theme === "dark" ? "/assets/images/bishowb_logo_dark.png" : "/assets/images/bishowb_logo_light.png"} 
+              alt="Logo" 
+              width={150} 
+              height={150}
+              className="h-8 w-auto"
+            />
+          )}
         </Link>
 
         {/* Desktop Navigation */}

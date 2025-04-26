@@ -4,10 +4,15 @@ import { Github, Instagram, Linkedin } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useTheme } from "next-themes"
-
+import { useEffect, useState } from "react"
 export default function Footer() {
   const currentYear = new Date().getFullYear()
   const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <footer className="bg-muted py-12">
@@ -15,13 +20,16 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
           <Link href="/" className="text-xl font-bold">
-          <Image 
-            src={theme === "dark" ? "/assets/images/bishowb_logo_dark.png" : "/assets/images/bishowb_logo_light.png"} 
-            alt="Logo" 
-            width={150} 
-            height={150}
-            className="h-8 w-auto"
-          />        </Link>
+          {mounted && (
+            <Image 
+              src={theme === "dark" ? "/assets/images/bishowb_logo_dark.png" : "/assets/images/bishowb_logo_light.png"} 
+              alt="Logo" 
+              width={150} 
+              height={150}
+              className="h-8 w-auto"
+            />
+          )}
+             </Link>
            
           </div>
 
