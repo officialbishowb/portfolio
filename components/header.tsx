@@ -13,11 +13,19 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
+
+  useEffect(() => {
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 10)
+  }
+
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -45,7 +53,7 @@ export default function Header() {
       <div className="container flex items-center justify-between h-16 md:h-20">
         <Link href="/" className="text-xl font-bold">
           <Image 
-            src={theme === "dark" ? "/assets/images/bishowb_logo_dark.png" : "/assets/images/bishowb_logo_light.png"} 
+            src={mounted && theme === "dark" ? "/assets/images/bishowb_logo_dark.png" : "/assets/images/bishowb_logo_light.png"} 
             alt="Logo" 
             width={150} 
             height={150}
