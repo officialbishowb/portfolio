@@ -12,7 +12,7 @@ export default function Hero() {
               Hi, I'm <span className="text-primary">Bishow</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/80 max-w-md text-center md:text-left">
-              Backend Developer specializing in APIs, databases, and scalable systems with a passion for cybersecurity.
+              Full-stack Developer with a focus on backend development, specializing in APIs, databases, and scalable systems, with a keen interest in cybersecurity.
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <Button asChild size="lg" className="rounded-full">
