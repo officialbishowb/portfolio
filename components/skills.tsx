@@ -12,6 +12,12 @@ interface Skill {
 export default function Skills() {
   const skills: Skill[] = [
     {
+      title: "Frontend Development",
+      description: "Building responsive and user-friendly interfaces.",
+      icon: <Globe className="h-10 w-10 text-primary" />,
+      technologies: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Bootstrap"]
+    },
+    {
       title: "Backend Development",
       description: "Building robust server-side applications and APIs.",
       icon: <Server className="h-10 w-10 text-primary" />,
