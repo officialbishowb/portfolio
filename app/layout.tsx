@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/toaster"
 import Loading from "./loading"
 import { cn } from "@/lib/utils"
 import { Suspense } from "react"
+import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -27,7 +28,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background font-sans antialiased", inter.className)}>
-      
+      {/* Privacy-friendly analytics by Plausible */}
+        <Script
+          async
+          src="https://plausible.io/js/pa-k0IybX3RWkEpqSLDZSEaH.js"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="plausible-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}}; plausible.init()`,
+          }}
+        />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Header />
           <Suspense fallback={<Loading />}>
