@@ -1,263 +1,229 @@
 "use client"
-import React, { useState } from "react"
-import { Card, CardContent } from "@/components/ui/card"
 
-type Book = {
-  title: string
-  author: string
-  year: number
-  finished: string // e.g. "2025-02-21" or "reading"
-  cover?: string // url or local /public path
-}
+import { useEffect, useRef, useState } from "react"
+import Script from "next/script"
 
-const books: Book[] = [
-  {
-    title: "Think and Grow Rich",
-    author: "Napoleon Hill",
-    year: 2024,
-    finished: "April 30,2024",
-  },
-  {
-    title: "Rich Dad Poor Dad",
-    author: "Robert Kiyosaki",
-    year: 2024,
-    finished: "May 30, 2024",
-  },
-  {
-    title: "The 48 Laws of Power",
-    author: "Robert Greene",
-    year: 2024,
-    finished: "June 30, 2024",
-  },
-  {
-    title: "Atomic Habits",
-    author: "James Clear",
-    year: 2024,
-    finished: "July 31, 2024",
-  },
-  {
-    title: "Never Split the Difference",
-    author: "Chris Voss, Tahl Raz",
-    year: 2024,
-    finished: "August 29, 2024",
-  },
-  {
-    title: "The Power of Habit",
-    author: "Charles Duhigg",
-    year: 2024,
-    finished: "November 18, 2024",
-  },
-  {
-    title: "Can't Hurt Me",
-    author: "David Goggins",
-    year: 2024,
-    finished: "December 25, 2024",
-  },
-  {
-    title: "12 Rules for Life",
-    author: "Jordan Peterson",
-    year: 2025,
-    finished: "January 25, 2025",
-  },
-  {
-    title: "A Brief History of Time",
-    author: "Stephen Hawking",
-    year: 2025,
-    finished: "Feb 17, 2025",
-  },
-  {
-    title: "Das einzige Buch, das du über Finanzen brauchst",
-    author: "Thomas Kehl, Mona Linke",
-    year: 2025,
-    finished: "Feb 28, 2025",
-  },
-  {
-    title: "Feel Good Productivity",
-    author: "Ali Abdaal",
-    year: 2025,
-    finished: "March 31, 2025",
-  },
-  {
-    title: "Menschen lesen",
-    author: "Joe Navarro",
-    year: 2025,
-    finished: "April 27, 2025",
-  },
-  {
-    title: "Crucial Conversations",
-    author: "Kerry Patterson, Joseph Grenny, Ron McMillan, Al Switzler",
-    year: 2025,
-    finished: "May 30, 2025",
-  },
-  {
-    title: "The Psychology of Money",
-    author: "Morgan Housel",
-    year: 2025,
-    finished: "June 28, 2025",
-  },
-  {
-    title: "The 5 Types of Wealth",
-    author: "Sahil Bloom",
-    year: 2025,
-    finished: "August 18, 2025",
-  },
-  {
-    title: "Emotional Intelligence",
-    author: "Daniel Goleman",
-    year: 2025,
-    finished: "September 30, 2025",
-  },
-  {
-    title: "The Subtle Art of Not Giving a F*ck",
-    author: "Mark Manson",
-    year: 2025,
-    finished: "October 5, 2025",
-  },
-  {
-    title: "Clean Code: A Handbook of Agile Software Craftsmanship",
-    author: "Robert C. Martin",
-    year: 2025,
-    finished: "reading",
-  },
-  {
-    title: "The 5 AM Club: Own Your Morning, Elevate Your Life",
-    author: "Robin Sharma",
-    year: 2025,
-    finished: "reading",
-  },
-]
+type SectionKey = "current" | "read"
 
-function groupByYear(items: Book[]) {
-  const map = new Map<number, Book[]>()
-  items.forEach((b) => {
-    const arr = map.get(b.year) ?? []
-    arr.push(b)
-    map.set(b.year, arr)
+function useSectionPrefs() {
+  const [collapsed, setCollapsed] = useState<Record<SectionKey, boolean>>({
+    current: false,
+    read: false,
   })
-
-  const finishedScore = (finished: string) => {
-    if (!finished) return 0
-    const t = finished.trim()
-    if (/reading/i.test(t)) return Number.POSITIVE_INFINITY
-    const parsed = Date.parse(t)
-    return isNaN(parsed) ? 0 : parsed
-  }
-
-  return Array.from(map.entries())
-    .sort((a, b) => b[0] - a[0])
-    .map(([year, list]) => ({
-      year,
-      books: list.sort((x, y) => finishedScore(y.finished) - finishedScore(x.finished)),
-    }))
+  // load persisted
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("books-sections-collapsed")
+      if (raw) setCollapsed(JSON.parse(raw))
+    } catch {}
+  }, [])
+  // persist on change
+  useEffect(() => {
+    try {
+      localStorage.setItem("books-sections-collapsed", JSON.stringify(collapsed))
+    } catch {}
+  }, [collapsed])
+  return { collapsed, setCollapsed }
 }
 
-function formatFinished(finished: string) {
-  if (!finished) return ""
-  const trimmed = finished.trim()
-  if (/reading/i.test(trimmed)) return "Reading"
+function GoodreadsWidget({
+  widgetId,
+  scriptSrc,
+  css,
+  cacheKey,
+}: {
+  widgetId: string
+  scriptSrc: string
+  css: string
+  cacheKey: string
+}) {
+  const containerId = `gr_custom_widget_${widgetId}`
+  const loadedRef = useRef(false)
 
-  const parsed = Date.parse(trimmed)
-  if (!isNaN(parsed)) {
-    return new Date(parsed).toLocaleDateString()
-  }
+  useEffect(() => {
+    const container = document.getElementById(containerId)
+    if (!container) return
 
-  return trimmed
-}
+    const saveCache = () => {
+      try {
+        localStorage.setItem(cacheKey, container.innerHTML)
+      } catch {}
+    }
 
-function isReading(finished: string) {
-  return !!finished && /reading/i.test(finished.trim())
+    const mo = new MutationObserver(() => {
+      if (container.childElementCount > 0) {
+        loadedRef.current = true
+        saveCache()
+      }
+    })
+    mo.observe(container, { childList: true, subtree: true })
+
+    const timeout = window.setTimeout(() => {
+      if (!loadedRef.current) {
+        const cached = localStorage.getItem(cacheKey)
+        if (cached) container.innerHTML = cached
+      }
+    }, 4000)
+
+    return () => {
+      mo.disconnect()
+      clearTimeout(timeout)
+    }
+  }, [cacheKey, containerId])
+
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
+      <div id={containerId}>
+        <noscript>
+          <div className="text-sm text-muted-foreground">Enable JavaScript to load Goodreads.</div>
+        </noscript>
+      </div>
+      <Script
+        id={`goodreads-widget-${widgetId}`}
+        src={scriptSrc}
+        strategy="afterInteractive"
+        onError={() => {
+          const el = document.getElementById(containerId)
+          if (!el) return
+          const cached = localStorage.getItem(cacheKey)
+          if (cached) el.innerHTML = cached
+        }}
+      />
+    </>
+  )
 }
 
 export default function BooksPage() {
-  const byYear = groupByYear(books)
+  const { collapsed, setCollapsed } = useSectionPrefs()
 
-  // track collapsed years (true = collapsed/hidden)
-  const [collapsed, setCollapsed] = useState<Record<number, boolean>>({})
-
-  const toggleYear = (year: number) =>
-    setCollapsed((s) => ({ ...s, [year]: !s[year] }))
+  const setFromDetails = (key: SectionKey) => (e: React.SyntheticEvent<HTMLDetailsElement>) => {
+    const open = (e.currentTarget as HTMLDetailsElement).open
+    setCollapsed((s) => ({ ...s, [key]: !open })) // collapsed = !open
+  }
 
   return (
     <main className="min-h-screen px-4 py-12 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <header className="mb-8">
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight mt-5">Books I've read</h1>
-          <p className="mt-2 text-sm text-muted-foreground">
-            A curated list of books I finished, organized by year.
-          </p>
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight mt-5">Books</h1>
+          <p className="mt-2 text-sm text-muted-foreground">Pulled live from my Goodreads shelves.</p>
         </header>
 
-        <section className="space-y-12">
-          {byYear.map(({ year, books }) => {
-            const isCollapsed = !!collapsed[year]
-            return (
-              <div key={year}>
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-2xl font-semibold">{year}</h2>
-                  <button
-                    type="button"
-                    aria-expanded={!isCollapsed}
-                    onClick={() => toggleYear(year)}
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium border hover:bg-muted/20 transition"
-                  >
-                    {isCollapsed ? "Show" : "Hide"}
-                  </button>
-                </div>
+        {/* Accordion item: Currently Reading (DESC) — on top */}
+        <details
+          open={!collapsed.current}
+          onToggle={setFromDetails("current")}
+          className="mb-6 rounded-lg border"
+        >
+          <summary
+            className="group flex items-center justify-between cursor-pointer select-none px-4 py-3 [&::-webkit-details-marker]:hidden"
+            aria-expanded={!collapsed.current}
+          >
+            <span className="text-lg font-semibold">Currently reading</span>
+            <svg
+              className={`h-4 w-4 transition-transform ${collapsed.current ? "" : "rotate-180"}`}
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.207l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" />
+            </svg>
+          </summary>
+          <div className="px-4 pb-4 pt-2">
+            {/* Wrapper used by CSS scoping below */}
+            <div id="goodreads-current">
+              <GoodreadsWidget
+                widgetId="1761805457"
+                cacheKey="gr-cache-1761805457"
+                scriptSrc={
+                  "https://www.goodreads.com/review/custom_widget/194986299.Bishow's%20bookshelf:%20currently-reading" +
+                  "?cover_position=left&cover_size=small&num_books=100&order=d&shelf=currently-reading&show_author=1&show_cover=1&show_rating=0&show_review=0&show_tags=0&show_title=1&sort=date_read&widget_bg_color=1C1917&widget_bg_transparent=true&widget_border_width=1&widget_id=1761805457&widget_text_color=000000&widget_title_size=medium&widget_width=medium"
+                }
+                css={`
+#goodreads-current #gr_custom_widget_1761805457 { width: 100%; }
+#goodreads-current .gr_custom_container_1761805457{
+  border:0; padding:0; background:transparent; color:inherit; width:100%;
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem;
+}
+#goodreads-current .gr_custom_each_container_1761805457{
+  width:auto; clear:none; margin:0; overflow:visible; padding:16px;
+  border:1px solid hsl(var(--border)); border-radius:0.75rem;
+  background: var(--card-bg, hsl(var(--card))); color:hsl(var(--card-foreground));
+  display:flex; gap:12px; align-items:flex-start;
+}
+#goodreads-current .gr_custom_book_container_1761805457{
+  float:none; width:64px; height:96px; margin:0; overflow:hidden; border-radius:.5rem; flex-shrink:0;
+}
+#goodreads-current .gr_custom_book_container_1761805457 img{ width:64px; height:96px; object-fit:cover; display:block; }
+#goodreads-current .gr_custom_title_1761805457 a{ color:inherit; text-decoration:none; font-weight:700; display:block; margin-bottom:4px; word-break:break-word; }
+#goodreads-current .gr_custom_author_1761805457{ font-size:12px; opacity:.8; }
+#goodreads-current .gr_custom_header_1761805457,
+#goodreads-current .gr_custom_tags_1761805457,
+#goodreads-current .gr_custom_rating_1761805457{ display:none !important; }
+#goodreads-current .gr_custom_each_container_1761805457{ border-bottom:none; }
+                `}
+              />
+            </div>
+          </div>
+        </details>
 
-                {!isCollapsed && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                    {books.map((b) => {
-                      const reading = isReading(b.finished)
-                      return (
-                        <Card
-                          key={`${b.title}-${b.finished}`}
-                          className={
-                            "border-2 transition-all duration-300 " +
-                            (reading
-                              ? "border-accent hover:border-accent"
-                              : "border text-card-foreground")
-                          }
-                          style={
-                            reading
-                              ? undefined
-                              : { backgroundColor: "var(--card-bg, hsl(var(--card)))" }
-                          }
-                        >
-                          <CardContent className="pt-6">
-                            <div className="mb-2">
-                              <h3 className="text-xl font-bold mb-1 break-words" title={b.title}>
-                                {b.title}
-                              </h3>
-                              <p className="text-sm text-foreground/70">{b.author}</p>
-                            </div>
-
-                            <div className="mt-4 flex items-center justify-between">
-                              <div className="text-xs text-muted-foreground">
-                                {reading ? (
-                                  <span
-                                    className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium"
-                                    style={{
-                                      backgroundColor: "var(--accent-color)",
-                                      color: "var(--accent-foreground, rgba(0,0,0,0.9))",
-                                    }}
-                                  >
-                                    Reading
-                                  </span>
-                                ) : (
-                                  <span>{formatFinished(b.finished)}</span>
-                                )}
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      )
-                    })}
-                  </div>
-                )}
-              </div>
-            )
-          })}
-        </section>
+        {/* Accordion item: Read (DESC) */}
+        <details
+          open={!collapsed.read}
+          onToggle={setFromDetails("read")}
+          className="rounded-lg border"
+        >
+          <summary
+            className="group flex items-center justify-between cursor-pointer select-none px-4 py-3 [&::-webkit-details-marker]:hidden"
+            aria-expanded={!collapsed.read}
+          >
+            <span className="text-lg font-semibold">Read</span>
+            <svg
+              className={`h-4 w-4 transition-transform ${collapsed.read ? "" : "rotate-180"}`}
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.207l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" />
+            </svg>
+          </summary>
+          <div className="px-4 pb-4 pt-2">
+            <div id="goodreads-read">
+              <GoodreadsWidget
+                widgetId="1761805285"
+                cacheKey="gr-cache-1761805285"
+                scriptSrc={
+                  "https://www.goodreads.com/review/custom_widget/194986299.Bishow's%20bookshelf:%20read" +
+                  "?cover_position=left&cover_size=small&num_books=100&order=d&shelf=read&show_author=1&show_cover=1&show_rating=0&show_review=0&show_tags=0&show_title=1&sort=date_read&widget_bg_color=1C1917&widget_bg_transparent=true&widget_border_width=1&widget_id=1761805285&widget_text_color=000000&widget_title_size=medium&widget_width=medium"
+                }
+                css={`
+#goodreads-read #gr_custom_widget_1761805285 { width: 100%; }
+#goodreads-read .gr_custom_container_1761805285{
+  border:0; padding:0; background:transparent; color:inherit; width:100%;
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem;
+}
+#goodreads-read .gr_custom_each_container_1761805285{
+  width:auto; clear:none; margin:0; overflow:visible; padding:16px;
+  border:1px solid hsl(var(--border)); border-radius:0.75rem;
+  background: var(--card-bg, hsl(var(--card))); color:hsl(var(--card-foreground));
+  display:flex; gap:12px; align-items:flex-start;
+}
+#goodreads-read .gr_custom_book_container_1761805285{
+  float:none; width:64px; height:96px; margin:0; overflow:hidden; border-radius:.5rem; flex-shrink:0;
+}
+#goodreads-read .gr_custom_book_container_1761805285 img{ width:64px; height:96px; object-fit:cover; display:block; }
+#goodreads-read .gr_custom_title_1761805285 a{ color:inherit; text-decoration:none; font-weight:700; display:block; margin-bottom:4px; word-break:break-word; }
+#goodreads-read .gr_custom_author_1761805285{ font-size:12px; opacity:.8; }
+#goodreads-read .gr_custom_header_1761805285,
+#goodreads-read .gr_custom_tags_1761805285,
+#goodreads-read .gr_custom_rating_1761805285{ display:none !important; }
+#goodreads-read .gr_custom_each_container_1761805285{ border-bottom:none; }
+                `}
+              />
+            </div>
+          </div>
+        </details>
       </div>
     </main>
   )
