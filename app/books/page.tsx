@@ -118,11 +118,79 @@ function GoodreadsWidget({
 
 export default function BooksPage() {
   const { collapsed, setCollapsed } = useSectionPrefs()
+  const [currentCount, setCurrentCount] = useState<number | null>(null)
+  const [readCount, setReadCount] = useState<number | null>(null)
 
   const setFromDetails = (key: SectionKey) => (e: React.SyntheticEvent<HTMLDetailsElement>) => {
     const open = (e.currentTarget as HTMLDetailsElement).open
     setCollapsed((s) => ({ ...s, [key]: !open })) // collapsed = !open
   }
+
+  // Count books in the "Currently reading" section
+  useEffect(() => {
+    const countBooks = () => {
+      const container = document.getElementById("goodreads-current")
+      if (!container) return
+      
+      const bookElements = container.querySelectorAll(
+        ".gr_custom_each_container_1761805457"
+      )
+      setCurrentCount(bookElements.length)
+    }
+
+    // Initial count attempt
+    countBooks()
+
+    // Watch for changes in the container
+    const container = document.getElementById("goodreads-current")
+    if (!container) return
+
+    const observer = new MutationObserver(countBooks)
+    observer.observe(container, { childList: true, subtree: true })
+
+    // Also check periodically in case the widget loads later
+    const interval = setInterval(countBooks, 1000)
+    const timeout = setTimeout(() => clearInterval(interval), 10000)
+
+    return () => {
+      observer.disconnect()
+      clearInterval(interval)
+      clearTimeout(timeout)
+    }
+  }, [])
+
+  // Count books in the "Read" section
+  useEffect(() => {
+    const countBooks = () => {
+      const container = document.getElementById("goodreads-read")
+      if (!container) return
+      
+      const bookElements = container.querySelectorAll(
+        ".gr_custom_each_container_1761805285"
+      )
+      setReadCount(bookElements.length)
+    }
+
+    // Initial count attempt
+    countBooks()
+
+    // Watch for changes in the container
+    const container = document.getElementById("goodreads-read")
+    if (!container) return
+
+    const observer = new MutationObserver(countBooks)
+    observer.observe(container, { childList: true, subtree: true })
+
+    // Also check periodically in case the widget loads later
+    const interval = setInterval(countBooks, 1000)
+    const timeout = setTimeout(() => clearInterval(interval), 10000)
+
+    return () => {
+      observer.disconnect()
+      clearInterval(interval)
+      clearTimeout(timeout)
+    }
+  }, [])
 
   return (
     <main className="min-h-screen px-4 py-12 sm:px-6 lg:px-8">
@@ -142,7 +210,14 @@ export default function BooksPage() {
             className="group flex items-center justify-between cursor-pointer select-none px-4 py-3 [&::-webkit-details-marker]:hidden"
             aria-expanded={!collapsed.current}
           >
-            <span className="text-lg font-semibold">Currently reading</span>
+            <span className="text-lg font-semibold">
+              Currently reading
+              {currentCount !== null && (
+                <span className="ml-2 text-sm font-normal text-muted-foreground">
+                  ({currentCount})
+                </span>
+              )}
+            </span>
             <svg
               className={`h-4 w-4 transition-transform ${collapsed.current ? "" : "rotate-180"}`}
               viewBox="0 0 20 20"
@@ -200,7 +275,14 @@ export default function BooksPage() {
             className="group flex items-center justify-between cursor-pointer select-none px-4 py-3 [&::-webkit-details-marker]:hidden"
             aria-expanded={!collapsed.read}
           >
-            <span className="text-lg font-semibold">Read</span>
+            <span className="text-lg font-semibold">
+              Read
+              {readCount !== null && (
+                <span className="ml-2 text-sm font-normal text-muted-foreground">
+                  ({readCount})
+                </span>
+              )}
+            </span>
             <svg
               className={`h-4 w-4 transition-transform ${collapsed.read ? "" : "rotate-180"}`}
               viewBox="0 0 20 20"
