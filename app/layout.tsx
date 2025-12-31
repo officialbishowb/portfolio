@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
+import SpecialEffects from "@/components/special-effects/special-effects"
 import Loading from "./loading"
 import { cn } from "@/lib/utils"
 import { Suspense } from "react"
@@ -43,6 +44,7 @@ export default function RootLayout({
         />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Header />
+          <SpecialEffects />
           <Suspense fallback={<Loading />}>
             <main className="min-h-screen">{children}</main>
           </Suspense>
