@@ -83,7 +83,7 @@ export default function NewYearEffect() {
             </DialogHeader>
             <div className="flex justify-center mt-4">
               <Button onClick={() => setShowGreeting(false)}>
-                Let's Go! 🚀
+                Let's Go!
               </Button>
             </div>
           </DialogContent>
