@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react"
 import Script from "next/script"
+import { BookOpen, BookMarked, ChevronDown } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
 type SectionKey = "current" | "read"
 
@@ -83,14 +85,13 @@ function GoodreadsWidget({
     <>
       <style dangerouslySetInnerHTML={{ __html: css }} />
       {/* Loading status */}
-      <div className="mb-4">
+      <div className="mb-6">
         {loading ? (
-          <div role="status" aria-live="polite" className="flex items-center gap-3 text-sm text-muted-foreground">
-            <svg className="h-5 w-5 animate-spin text-muted-foreground" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
-            </svg>
-            <span>Loading books…</span>
+          <div role="status" aria-live="polite" className="flex items-center justify-center gap-3 py-8">
+            <div className="relative">
+              <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+            </div>
+            <span className="text-sm font-medium text-muted-foreground">Loading your library…</span>
           </div>
         ) : null}
       </div>
@@ -193,41 +194,49 @@ export default function BooksPage() {
   }, [])
 
   return (
-    <main className="min-h-screen px-4 py-12 sm:px-6 lg:px-8">
+    <main className="min-h-screen px-4 py-12 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/20">
       <div className="max-w-7xl mx-auto">
-        <header className="mb-8">
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight mt-5">Books</h1>
-          <p className="mt-2 text-sm text-muted-foreground">Pulled live from my Goodreads shelves.</p>
+        <header className="mb-12 text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
+            <BookOpen className="w-8 h-8 text-primary" />
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            My Library
+          </h1>
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+            A curated collection of books I'm reading and have read, pulled live from my Goodreads shelves.
+          </p>
         </header>
 
         {/* Accordion item: Currently Reading (DESC) — on top */}
         <details
           open={!collapsed.current}
           onToggle={setFromDetails("current")}
-          className="mb-6 rounded-lg border"
+          className="mb-6 rounded-xl border bg-card/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden"
         >
           <summary
-            className="group flex items-center justify-between cursor-pointer select-none px-4 py-3 [&::-webkit-details-marker]:hidden"
+            className="group flex items-center justify-between cursor-pointer select-none px-6 py-4 bg-gradient-to-r from-primary/5 to-primary/0 hover:from-primary/10 hover:to-primary/5 transition-all [&::-webkit-details-marker]:hidden"
             aria-expanded={!collapsed.current}
           >
-            <span className="text-lg font-semibold">
-              Currently reading
-              {currentCount !== null && (
-                <span className="ml-2 text-sm font-normal text-muted-foreground">
-                  ({currentCount})
-                </span>
-              )}
-            </span>
-            <svg
-              className={`h-4 w-4 transition-transform ${collapsed.current ? "" : "rotate-180"}`}
-              viewBox="0 0 20 20"
-              fill="currentColor"
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                <BookMarked className="w-5 h-5 text-primary" />
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-lg font-semibold">Currently Reading</span>
+                {currentCount !== null && (
+                  <Badge variant="secondary" className="font-medium">
+                    {currentCount}
+                  </Badge>
+                )}
+              </div>
+            </div>
+            <ChevronDown
+              className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${collapsed.current ? "" : "rotate-180"}`}
               aria-hidden="true"
-            >
-              <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.207l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" />
-            </svg>
+            />
           </summary>
-          <div className="px-4 pb-4 pt-2">
+          <div className="px-6 pb-6 pt-4">
             {/* Wrapper used by CSS scoping below */}
             <div id="goodreads-current">
               <GoodreadsWidget
@@ -241,20 +250,30 @@ export default function BooksPage() {
 #goodreads-current #gr_custom_widget_1761805457 { width: 100%; }
 #goodreads-current .gr_custom_container_1761805457{
   border:0; padding:0; background:transparent; color:inherit; width:100%;
-  display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem;
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem;
 }
 #goodreads-current .gr_custom_each_container_1761805457{
-  width:auto; clear:none; margin:0; overflow:visible; padding:16px;
-  border:1px solid hsl(var(--border)); border-radius:0.75rem;
+  width:auto; clear:none; margin:0; overflow:visible; padding:20px;
+  border:1px solid hsl(var(--border)); border-radius:1rem;
   background: var(--card-bg, hsl(var(--card))); color:hsl(var(--card-foreground));
-  display:flex; gap:12px; align-items:flex-start;
+  display:flex; gap:14px; align-items:flex-start;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+#goodreads-current .gr_custom_each_container_1761805457:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border-color: hsl(var(--primary) / 0.3);
 }
 #goodreads-current .gr_custom_book_container_1761805457{
-  float:none; width:64px; height:96px; margin:0; overflow:hidden; border-radius:.5rem; flex-shrink:0;
+  float:none; width:70px; height:105px; margin:0; overflow:hidden; border-radius:0.625rem; flex-shrink:0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
-#goodreads-current .gr_custom_book_container_1761805457 img{ width:64px; height:96px; object-fit:cover; display:block; }
-#goodreads-current .gr_custom_title_1761805457 a{ color:inherit; text-decoration:none; font-weight:700; display:block; margin-bottom:4px; word-break:break-word; }
-#goodreads-current .gr_custom_author_1761805457{ font-size:12px; opacity:.8; }
+#goodreads-current .gr_custom_book_container_1761805457 img{ width:70px; height:105px; object-fit:cover; display:block; transition: transform 0.2s ease; }
+#goodreads-current .gr_custom_each_container_1761805457:hover .gr_custom_book_container_1761805457 img{ transform: scale(1.05); }
+#goodreads-current .gr_custom_title_1761805457 a{ color:inherit; text-decoration:none; font-weight:700; display:block; margin-bottom:6px; word-break:break-word; font-size:0.95rem; line-height:1.4; transition: color 0.2s ease; }
+#goodreads-current .gr_custom_each_container_1761805457:hover .gr_custom_title_1761805457 a{ color: hsl(var(--primary)); }
+#goodreads-current .gr_custom_author_1761805457{ font-size:0.8125rem; opacity:.75; line-height:1.4; }
 #goodreads-current .gr_custom_header_1761805457,
 #goodreads-current .gr_custom_tags_1761805457,
 #goodreads-current .gr_custom_rating_1761805457{ display:none !important; }
@@ -269,30 +288,31 @@ export default function BooksPage() {
         <details
           open={!collapsed.read}
           onToggle={setFromDetails("read")}
-          className="rounded-lg border"
+          className="rounded-xl border bg-card/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden"
         >
           <summary
-            className="group flex items-center justify-between cursor-pointer select-none px-4 py-3 [&::-webkit-details-marker]:hidden"
+            className="group flex items-center justify-between cursor-pointer select-none px-6 py-4 bg-gradient-to-r from-primary/5 to-primary/0 hover:from-primary/10 hover:to-primary/5 transition-all [&::-webkit-details-marker]:hidden"
             aria-expanded={!collapsed.read}
           >
-            <span className="text-lg font-semibold">
-              Read
-              {readCount !== null && (
-                <span className="ml-2 text-sm font-normal text-muted-foreground">
-                  ({readCount})
-                </span>
-              )}
-            </span>
-            <svg
-              className={`h-4 w-4 transition-transform ${collapsed.read ? "" : "rotate-180"}`}
-              viewBox="0 0 20 20"
-              fill="currentColor"
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                <BookOpen className="w-5 h-5 text-primary" />
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-lg font-semibold">Read</span>
+                {readCount !== null && (
+                  <Badge variant="secondary" className="font-medium">
+                    {readCount}
+                  </Badge>
+                )}
+              </div>
+            </div>
+            <ChevronDown
+              className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${collapsed.read ? "" : "rotate-180"}`}
               aria-hidden="true"
-            >
-              <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.207l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" />
-            </svg>
+            />
           </summary>
-          <div className="px-4 pb-4 pt-2">
+          <div className="px-6 pb-6 pt-4">
             <div id="goodreads-read">
               <GoodreadsWidget
                 widgetId="1761805285"
@@ -305,20 +325,30 @@ export default function BooksPage() {
 #goodreads-read #gr_custom_widget_1761805285 { width: 100%; }
 #goodreads-read .gr_custom_container_1761805285{
   border:0; padding:0; background:transparent; color:inherit; width:100%;
-  display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem;
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem;
 }
 #goodreads-read .gr_custom_each_container_1761805285{
-  width:auto; clear:none; margin:0; overflow:visible; padding:16px;
-  border:1px solid hsl(var(--border)); border-radius:0.75rem;
+  width:auto; clear:none; margin:0; overflow:visible; padding:20px;
+  border:1px solid hsl(var(--border)); border-radius:1rem;
   background: var(--card-bg, hsl(var(--card))); color:hsl(var(--card-foreground));
-  display:flex; gap:12px; align-items:flex-start;
+  display:flex; gap:14px; align-items:flex-start;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+#goodreads-read .gr_custom_each_container_1761805285:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border-color: hsl(var(--primary) / 0.3);
 }
 #goodreads-read .gr_custom_book_container_1761805285{
-  float:none; width:64px; height:96px; margin:0; overflow:hidden; border-radius:.5rem; flex-shrink:0;
+  float:none; width:70px; height:105px; margin:0; overflow:hidden; border-radius:0.625rem; flex-shrink:0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
-#goodreads-read .gr_custom_book_container_1761805285 img{ width:64px; height:96px; object-fit:cover; display:block; }
-#goodreads-read .gr_custom_title_1761805285 a{ color:inherit; text-decoration:none; font-weight:700; display:block; margin-bottom:4px; word-break:break-word; }
-#goodreads-read .gr_custom_author_1761805285{ font-size:12px; opacity:.8; }
+#goodreads-read .gr_custom_book_container_1761805285 img{ width:70px; height:105px; object-fit:cover; display:block; transition: transform 0.2s ease; }
+#goodreads-read .gr_custom_each_container_1761805285:hover .gr_custom_book_container_1761805285 img{ transform: scale(1.05); }
+#goodreads-read .gr_custom_title_1761805285 a{ color:inherit; text-decoration:none; font-weight:700; display:block; margin-bottom:6px; word-break:break-word; font-size:0.95rem; line-height:1.4; transition: color 0.2s ease; }
+#goodreads-read .gr_custom_each_container_1761805285:hover .gr_custom_title_1761805285 a{ color: hsl(var(--primary)); }
+#goodreads-read .gr_custom_author_1761805285{ font-size:0.8125rem; opacity:.75; line-height:1.4; }
 #goodreads-read .gr_custom_header_1761805285,
 #goodreads-read .gr_custom_tags_1761805285,
 #goodreads-read .gr_custom_rating_1761805285{ display:none !important; }
