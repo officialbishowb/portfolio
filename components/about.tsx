@@ -25,10 +25,10 @@ export default function About() {
               </p>
               <p>
                 I am also very interested in cybersecurity, which was the main reason why I became interested in IT and programming in general and
-                decided to pursue a degree in IT security.
+                decided to pursue a degree in IT security, which I started recently.
               </p>
               <p>
-                You can check out some of my projects on <Link href="https://github.com/officialbishowb/" className="text-link">GitHub</Link>. They include small but useful projects that I did and probably
+                You can check out some of my projects on <Link href="https://github.com/officialbishowb/" className="text-link">GitHub</Link>. They include small but !useful projects that I did and probably
                 did not finish 😅. Outside of coding, I enjoy staying active by going to the gym and <Link href="/books" className="text-link">reading books</Link> to expand my knowledge.
               </p>
               <p>Well that's enough about me :)</p>
