@@ -134,7 +134,7 @@ export default function BooksPage() {
       if (!container) return
       
       const bookElements = container.querySelectorAll(
-        ".gr_custom_each_container_1761805457"
+        ".gr_custom_each_container_1769773692"
       )
       setCurrentCount(bookElements.length)
     }
@@ -167,7 +167,7 @@ export default function BooksPage() {
       if (!container) return
       
       const bookElements = container.querySelectorAll(
-        ".gr_custom_each_container_1761805285"
+        ".gr_custom_each_container_1769773671"
       )
       setReadCount(bookElements.length)
     }
@@ -240,44 +240,44 @@ export default function BooksPage() {
             {/* Wrapper used by CSS scoping below */}
             <div id="goodreads-current">
               <GoodreadsWidget
-                widgetId="1761805457"
-                cacheKey="gr-cache-1761805457"
+                widgetId="1769773692"
+                cacheKey="gr-cache-1769773692"
                 scriptSrc={
                   "https://www.goodreads.com/review/custom_widget/194986299.Bishow's%20bookshelf:%20currently-reading" +
-                  "?cover_position=left&cover_size=small&num_books=100&order=d&shelf=currently-reading&show_author=1&show_cover=1&show_rating=0&show_review=0&show_tags=0&show_title=1&sort=date_read&widget_bg_color=1C1917&widget_bg_transparent=true&widget_border_width=1&widget_id=1761805457&widget_text_color=000000&widget_title_size=medium&widget_width=medium"
+                  "?cover_position=left&cover_size=medium&num_books=100&order=a&shelf=currently-reading&show_author=1&show_cover=1&show_rating=1&show_review=1&show_tags=1&show_title=1&sort=date_added&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=1&widget_id=1769773692&widget_text_color=000000&widget_title_size=medium&widget_width=medium"
                 }
                 css={`
-#goodreads-current #gr_custom_widget_1761805457 { width: 100%; }
-#goodreads-current .gr_custom_container_1761805457{
+#goodreads-current #gr_custom_widget_1769773692 { width: 100%; }
+#goodreads-current .gr_custom_container_1769773692{
   border:0; padding:0; background:transparent; color:inherit; width:100%;
-  display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem;
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.5rem;
 }
-#goodreads-current .gr_custom_each_container_1761805457{
+#goodreads-current .gr_custom_each_container_1769773692{
   width:auto; clear:none; margin:0; overflow:visible; padding:20px;
   border:1px solid hsl(var(--border)); border-radius:1rem;
   background: var(--card-bg, hsl(var(--card))); color:hsl(var(--card-foreground));
-  display:flex; gap:14px; align-items:flex-start;
+  display:flex; gap:16px; align-items:flex-start;
   transition: all 0.2s ease;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
-#goodreads-current .gr_custom_each_container_1761805457:hover{
+#goodreads-current .gr_custom_each_container_1769773692:hover{
   transform: translateY(-2px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   border-color: hsl(var(--primary) / 0.3);
 }
-#goodreads-current .gr_custom_book_container_1761805457{
-  float:none; width:70px; height:105px; margin:0; overflow:hidden; border-radius:0.625rem; flex-shrink:0;
+#goodreads-current .gr_custom_book_container_1769773692{
+  float:none; width:98px; height:160px; margin:0; overflow:hidden; border-radius:0.625rem; flex-shrink:0;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
-#goodreads-current .gr_custom_book_container_1761805457 img{ width:70px; height:105px; object-fit:cover; display:block; transition: transform 0.2s ease; }
-#goodreads-current .gr_custom_each_container_1761805457:hover .gr_custom_book_container_1761805457 img{ transform: scale(1.05); }
-#goodreads-current .gr_custom_title_1761805457 a{ color:inherit; text-decoration:none; font-weight:700; display:block; margin-bottom:6px; word-break:break-word; font-size:0.95rem; line-height:1.4; transition: color 0.2s ease; }
-#goodreads-current .gr_custom_each_container_1761805457:hover .gr_custom_title_1761805457 a{ color: hsl(var(--primary)); }
-#goodreads-current .gr_custom_author_1761805457{ font-size:0.8125rem; opacity:.75; line-height:1.4; }
-#goodreads-current .gr_custom_header_1761805457,
-#goodreads-current .gr_custom_tags_1761805457,
-#goodreads-current .gr_custom_rating_1761805457{ display:none !important; }
-#goodreads-current .gr_custom_each_container_1761805457{ border-bottom:none; }
+#goodreads-current .gr_custom_book_container_1769773692 img{ width:98px; height:160px; object-fit:cover; display:block; transition: transform 0.2s ease; }
+#goodreads-current .gr_custom_each_container_1769773692:hover .gr_custom_book_container_1769773692 img{ transform: scale(1.05); }
+#goodreads-current .gr_custom_title_1769773692 a{ color:inherit; text-decoration:none; font-weight:700; display:block; margin-bottom:6px; word-break:break-word; font-size:0.95rem; line-height:1.4; transition: color 0.2s ease; }
+#goodreads-current .gr_custom_each_container_1769773692:hover .gr_custom_title_1769773692 a{ color: hsl(var(--primary)); }
+#goodreads-current .gr_custom_author_1769773692{ font-size:0.8125rem; opacity:.75; line-height:1.4; }
+#goodreads-current .gr_custom_header_1769773692,
+#goodreads-current .gr_custom_tags_1769773692,
+#goodreads-current .gr_custom_rating_1769773692{ display:none !important; }
+#goodreads-current .gr_custom_each_container_1769773692{ border-bottom:none; }
                 `}
               />
             </div>
@@ -315,44 +315,44 @@ export default function BooksPage() {
           <div className="px-6 pb-6 pt-4">
             <div id="goodreads-read">
               <GoodreadsWidget
-                widgetId="1761805285"
-                cacheKey="gr-cache-1761805285"
+                widgetId="1769773671"
+                cacheKey="gr-cache-1769773671"
                 scriptSrc={
                   "https://www.goodreads.com/review/custom_widget/194986299.Bishow's%20bookshelf:%20read" +
-                  "?cover_position=left&cover_size=small&num_books=100&order=d&shelf=read&show_author=1&show_cover=1&show_rating=0&show_review=0&show_tags=0&show_title=1&sort=date_read&widget_bg_color=1C1917&widget_bg_transparent=true&widget_border_width=1&widget_id=1761805285&widget_text_color=000000&widget_title_size=medium&widget_width=medium"
+                  "?cover_position=left&cover_size=medium&num_books=100&order=a&shelf=read&show_author=1&show_cover=1&show_rating=1&show_review=1&show_tags=1&show_title=1&sort=date_added&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=1&widget_id=1769773671&widget_text_color=000000&widget_title_size=medium&widget_width=medium"
                 }
                 css={`
-#goodreads-read #gr_custom_widget_1761805285 { width: 100%; }
-#goodreads-read .gr_custom_container_1761805285{
+#goodreads-read #gr_custom_widget_1769773671 { width: 100%; }
+#goodreads-read .gr_custom_container_1769773671{
   border:0; padding:0; background:transparent; color:inherit; width:100%;
-  display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem;
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.5rem;
 }
-#goodreads-read .gr_custom_each_container_1761805285{
+#goodreads-read .gr_custom_each_container_1769773671{
   width:auto; clear:none; margin:0; overflow:visible; padding:20px;
   border:1px solid hsl(var(--border)); border-radius:1rem;
   background: var(--card-bg, hsl(var(--card))); color:hsl(var(--card-foreground));
-  display:flex; gap:14px; align-items:flex-start;
+  display:flex; gap:16px; align-items:flex-start;
   transition: all 0.2s ease;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
-#goodreads-read .gr_custom_each_container_1761805285:hover{
+#goodreads-read .gr_custom_each_container_1769773671:hover{
   transform: translateY(-2px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   border-color: hsl(var(--primary) / 0.3);
 }
-#goodreads-read .gr_custom_book_container_1761805285{
-  float:none; width:70px; height:105px; margin:0; overflow:hidden; border-radius:0.625rem; flex-shrink:0;
+#goodreads-read .gr_custom_book_container_1769773671{
+  float:none; width:98px; height:160px; margin:0; overflow:hidden; border-radius:0.625rem; flex-shrink:0;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
-#goodreads-read .gr_custom_book_container_1761805285 img{ width:70px; height:105px; object-fit:cover; display:block; transition: transform 0.2s ease; }
-#goodreads-read .gr_custom_each_container_1761805285:hover .gr_custom_book_container_1761805285 img{ transform: scale(1.05); }
-#goodreads-read .gr_custom_title_1761805285 a{ color:inherit; text-decoration:none; font-weight:700; display:block; margin-bottom:6px; word-break:break-word; font-size:0.95rem; line-height:1.4; transition: color 0.2s ease; }
-#goodreads-read .gr_custom_each_container_1761805285:hover .gr_custom_title_1761805285 a{ color: hsl(var(--primary)); }
-#goodreads-read .gr_custom_author_1761805285{ font-size:0.8125rem; opacity:.75; line-height:1.4; }
-#goodreads-read .gr_custom_header_1761805285,
-#goodreads-read .gr_custom_tags_1761805285,
-#goodreads-read .gr_custom_rating_1761805285{ display:none !important; }
-#goodreads-read .gr_custom_each_container_1761805285{ border-bottom:none; }
+#goodreads-read .gr_custom_book_container_1769773671 img{ width:98px; height:160px; object-fit:cover; display:block; transition: transform 0.2s ease; }
+#goodreads-read .gr_custom_each_container_1769773671:hover .gr_custom_book_container_1769773671 img{ transform: scale(1.05); }
+#goodreads-read .gr_custom_title_1769773671 a{ color:inherit; text-decoration:none; font-weight:700; display:block; margin-bottom:6px; word-break:break-word; font-size:0.95rem; line-height:1.4; transition: color 0.2s ease; }
+#goodreads-read .gr_custom_each_container_1769773671:hover .gr_custom_title_1769773671 a{ color: hsl(var(--primary)); }
+#goodreads-read .gr_custom_author_1769773671{ font-size:0.8125rem; opacity:.75; line-height:1.4; }
+#goodreads-read .gr_custom_header_1769773671,
+#goodreads-read .gr_custom_tags_1769773671,
+#goodreads-read .gr_custom_rating_1769773671{ display:none !important; }
+#goodreads-read .gr_custom_each_container_1769773671{ border-bottom:none; }
                 `}
               />
             </div>
