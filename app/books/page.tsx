@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react"
 import Script from "next/script"
 import { BookOpen, BookMarked, ChevronDown } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
 
 type SectionKey = "current" | "read"
 
@@ -91,7 +90,7 @@ function GoodreadsWidget({
             <div className="relative">
               <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
             </div>
-            <span className="text-sm font-medium text-muted-foreground">Loading your library…</span>
+            <span className="text-sm font-medium text-muted-foreground">Loading library…</span>
           </div>
         ) : null}
       </div>
@@ -194,16 +193,16 @@ export default function BooksPage() {
   }, [])
 
   return (
-    <main className="min-h-screen px-4 py-12 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/20">
+    <main className="min-h-screen px-4 pt-28 pb-12 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/20">
       <div className="max-w-7xl mx-auto">
         <header className="mb-12 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
             <BookOpen className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+          <h1 className="font-headline text-[#e5e1eb] mb-3 text-3xl sm:text-4xl">
             My Library
           </h1>
-          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm text-[#bfc9c0] max-w-2xl mx-auto">
             A curated collection of books I'm reading and have read, pulled live from my Goodreads shelves.
           </p>
         </header>
@@ -223,11 +222,11 @@ export default function BooksPage() {
                 <BookMarked className="w-5 h-5 text-primary" />
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-lg font-semibold">Currently Reading</span>
+                <span className="text-base font-semibold text-[#e5e1eb]" style={{ fontFamily: "var(--font-instrument)" }}>Currently Reading</span>
                 {currentCount !== null && (
-                  <Badge variant="secondary" className="font-medium">
+                  <span className="font-label text-[#96DAAF] bg-[#96DAAF]/10 border border-[#96DAAF]/30 px-2 py-0.5 rounded-full">
                     {currentCount}
-                  </Badge>
+                  </span>
                 )}
               </div>
             </div>
@@ -299,11 +298,11 @@ export default function BooksPage() {
                 <BookOpen className="w-5 h-5 text-primary" />
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-lg font-semibold">Read</span>
+                <span className="text-base font-semibold text-[#e5e1eb]" style={{ fontFamily: "var(--font-instrument)" }}>Read</span>
                 {readCount !== null && (
-                  <Badge variant="secondary" className="font-medium">
+                  <span className="font-label text-[#96DAAF] bg-[#96DAAF]/10 border border-[#96DAAF]/30 px-2 py-0.5 rounded-full">
                     {readCount}
-                  </Badge>
+                  </span>
                 )}
               </div>
             </div>

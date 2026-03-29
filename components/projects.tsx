@@ -1,89 +1,79 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ArrowUpRight, Github } from "lucide-react"
-import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 
 export default function Projects() {
   const projects = [
     {
-      title: "E-commerce Platform",
-      description: "A full-stack e-commerce platform with payment integration and admin dashboard.",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-      demoUrl: "#",
-      githubUrl: "#",
+      title: "dc-tg-forwarder",
+      description: "Automated bridge between Discord webhooks and Telegram Bot API.",
+      tags: ["Python", "Discord API", "Telegram API"],
+      url: "https://github.com/officialbishowb/dc-tg-forwarder",
     },
     {
-      title: "Portfolio Website",
-      description: "A responsive portfolio website with dark mode and animations.",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["React", "Framer Motion", "Tailwind CSS"],
-      demoUrl: "#",
-      githubUrl: "#",
+      title: "simple-auth",
+      description: "Lightweight OAuth2 server implementation for microservice architectures.",
+      tags: ["Node.js", "OAuth2", "JWT"],
+      url: "https://github.com/officialbishowb/simple-auth",
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates.",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["React", "Firebase", "Material UI"],
-      demoUrl: "#",
-      githubUrl: "#",
+      title: "vienna-traffic",
+      description: "Real-time analysis tool for public transport in Vienna (Wiener Linien API).",
+      tags: ["Python", "REST API", "Data Analysis"],
+      url: "https://github.com/officialbishowb/vienna-traffic",
     },
   ]
 
   return (
-    <section id="projects" className="section-padding bg-muted/50">
-      <div className="container">
-        <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-          <p className="text-lg text-foreground/80">A selection of my recent work and personal projects.</p>
+    <section id="projects" className="py-20 md:py-32" style={{ backgroundColor: "#1C1B22" }}>
+      <div className="px-4 md:px-6 mx-auto max-w-5xl">
+
+        {/* Section header */}
+        <div className="mb-16">
+          <span className="font-label text-[#96DAAF] bg-[#96DAAF]/10 border border-[#96DAAF]/30 px-3 py-1.5 rounded-full inline-block mb-4">PROJECTS</span>
+          <h2 className="font-headline text-[#e5e1eb] italic">Selected Works.</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {/* Horizontal list */}
+        <div className="divide-y divide-[#404942]/40">
           {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden border-2 hover:border-primary transition-all duration-300">
-              <div className="aspect-video overflow-hidden">
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
+            <a
+              key={index}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col md:flex-row md:items-center gap-3 md:gap-6 py-8 px-4 -mx-4 rounded-xl hover:bg-[#201f26] transition-colors"
+            >
+              {/* Project name */}
+              <h3
+                className="text-[#e5e1eb] font-semibold text-base group-hover:text-[#96DAAF] transition-colors md:w-48 shrink-0"
+              >
+                {project.title}
+              </h3>
+
+              {/* Description */}
+              <p
+                className="text-[#bfc9c0] text-sm leading-relaxed flex-1"
+              >
+                {project.description}
+              </p>
+
+              {/* Tags + arrow */}
+              <div className="flex items-center gap-3 shrink-0">
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, i) => (
-                    <Badge key={i} variant="secondary">
+                    <span
+                      key={i}
+                      className="font-label text-[#bfc9c0] border border-[#404942]/40 px-2 py-0.5 rounded-md"
+                    >
                       {tag}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
-              </CardContent>
-              <CardFooter className="flex justify-between">
-                <Button variant="ghost" size="sm" asChild>
-                  <Link href={project.githubUrl}>
-                    <Github className="mr-2 h-4 w-4" /> Code
-                  </Link>
-                </Button>
-                <Button size="sm" asChild>
-                  <Link href={project.demoUrl}>
-                    Live Demo <ArrowUpRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
+                <ArrowUpRight className="h-4 w-4 text-[#bfc9c0] group-hover:text-[#96DAAF] transition-colors shrink-0" />
+              </div>
+            </a>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <Button variant="outline" size="lg" className="rounded-full">
-            View All Projects <ArrowUpRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
       </div>
     </section>
   )

@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss"
 
 const config = {
-  darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -19,6 +18,11 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans:  ["var(--font-jakarta)", "system-ui", "sans-serif"],
+        serif: ["var(--font-instrument)", "Georgia", "serif"],
+        mono:  ["var(--font-chatbrands)", "var(--font-jakarta)", "system-ui", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -68,16 +72,10 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        pulsate: {
-          "0%": { transform: "scale(1)", opacity: "0.2" },
-          "50%": { transform: "scale(1.1)", opacity: "0.4" },
-          "100%": { transform: "scale(1)", opacity: "0.2" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        pulsate: "pulsate 3s ease-in-out infinite",
       },
     },
   },
