@@ -62,7 +62,7 @@ export default function Contact() {
             </a>
 
             <a
-              href="https://github.com/officialbishowb"
+              href="https://github.com/officialbishowb/portfolio/issues/new?title=Contact+Request&labels=Contact&body=Please+type+your+message+here"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-between py-5 transition-colors"
