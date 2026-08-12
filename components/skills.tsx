@@ -6,37 +6,37 @@ interface Skill {
 
 export default function Skills() {
   const skills: Skill[] = [
-    {
-      title: "Backend Development",
-      description: "Building robust server-side applications and APIs.",
-      technologies: ["Node.js", "Express", "Flask", "REST APIs","Laravel","..."],
-    },
-    {
-      title: "Databases",
-      description: "Designing and optimizing database systems.",
-      technologies: ["PostgreSQL", "MongoDB", "MySQL", "ORM","Redis","..."],
-    },
-    {
-      title: "DevOps & Cloud",
-      description: "Streamlining development and deployment processes.",
-      technologies: ["Docker", "CI/CD", "Linux", "..."],
-    },
-    {
-      title: "Full-Stack Solutions",
-      description: "Seamless integration of complex backends into modern frontends.",
-      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "..."],
-    },
-    {
-      title: "Cybersecurity",
-      description: "Implementing secure systems and best practices.",
-      technologies: ["Authentication", "Authorization", "Encryption"],
-    },
-    {
-      title: "API Development",
-      description: "Creating scalable and efficient APIs.",
-      technologies: ["RESTful APIs", "Swagger", "API Security", "..."],
-    },
-  ]
+  {
+    title: "Backend Development",
+    description: "Building robust server-side applications and APIs.",
+    technologies: ["Node.js", "Express", "Flask", "REST APIs", "..."],
+  },
+  {
+    title: "Databases",
+    description: "Designing and optimizing database systems.",
+    technologies: ["PostgreSQL", "MySQL", "Prisma", "Redis", "..."],
+  },
+  {
+    title: "DevOps & Cloud",
+    description: "Streamlining development and deployment processes.",
+    technologies: ["Docker", "CI/CD", "Linux", "..."],
+  },
+  {
+    title: "Full-Stack Solutions",
+    description: "Seamless integration of complex backends into modern frontends.",
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Laravel", "..."],
+  },
+  {
+    title: "Cybersecurity",
+    description: "Implementing secure systems and best practices.",
+    technologies: ["Authentication", "Authorization", "Encryption"],
+  },
+  {
+    title: "API Development",
+    description: "Creating scalable and efficient APIs.",
+    technologies: ["RESTful APIs", "Swagger", "API Security", "..."],
+  },
+]
 
   return (
     <section id="skills" className="py-20 md:py-32" style={{ backgroundColor: "#131319" }}>
