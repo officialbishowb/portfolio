@@ -68,7 +68,7 @@ export default function About() {
                 <span
                   className="font-label text-[#96DAAF] border border-[#96DAAF]/30 px-3 py-2 rounded-xl bg-[#131319] block"
                 >
-                  FULLSTACK DEVELOPER
+                  SOFTWARE DEVELOPER
                 </span>
               </div>
             </div>
