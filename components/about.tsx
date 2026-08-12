@@ -18,29 +18,30 @@ export default function About() {
           {/* Text content */}
           <div className="space-y-6 order-2 md:order-1">
             <div className="space-y-4 text-[#bfc9c0] text-sm leading-relaxed tracking-wide">
-              <p>
-                My name is Bishow, and I&apos;m a tech enthusiast and a fullstack developer with a passion for backend
-                development (APIs, databases, and scalable systems are my main focus).
-              </p>
-              <p>
-                I am also very interested in cybersecurity, which was the main reason why I became interested in IT and
-                programming in general and decided to pursue a degree in IT security, which I started recently.
-              </p>
-              <p>
-                You can check out some of my projects on{" "}
-                <Link href="https://github.com/officialbishowb/" className="text-link">
-                  GitHub
-                </Link>
-                . They include small but !useful projects that I did and probably did not finish 😅. Outside of coding,
-                I enjoy staying active by going to the gym and{" "}
-                <Link href="/books" className="text-link">
-                  reading books
-                </Link>{" "}
-                to expand my knowledge.
-              </p>
-              <p>Well that&apos;s enough about me :)</p>
-            </div>
-
+    <p>
+      My name is Bishow, and I&apos;m a tech enthusiast and a fullstack developer with a
+      passion for the backend - APIs, databases, and the system design decisions behind
+      scalable applications are what I enjoy most.
+    </p>
+    <p>
+      Cybersecurity was the reason I became interested in IT and programming in the first place, and it
+     is still very much a passion of mine, so much so that I am pursuing a degree in IT security.
+    </p>
+    <p>
+      You can check out some of my projects on{" "}
+      <Link href="https://github.com/officialbishowb/" className="text-link">
+        GitHub
+      </Link>
+      . They include small but !useful projects that I did and probably did not finish 😅. Outside of coding,
+      I enjoy staying active by going to the gym and{" "}
+      <Link href="/books" className="text-link">
+        reading books
+      </Link>{" "}
+      to expand my knowledge.
+    </p>
+    <p>Well that&apos;s enough about me :)</p>
+  </div>
+            
             <a
               href="#contact"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-[#404942]/40 text-[#e5e1eb] text-sm hover:border-[#404942]/80 transition-colors mt-2"
