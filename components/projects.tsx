@@ -3,6 +3,13 @@ import { ArrowUpRight } from "lucide-react"
 export default function Projects() {
   const projects = [
     {
+      title: "zeitt.io",
+      description: "The auto-scheduler for people juggling work, study, and side projects.",
+      tags: ["Next.js", "TypeScript"],
+      url: "https://zeitt.io",
+      label: "In Progress",
+    },
+    {
       title: "dc-tg-forwarder",
       description: "Automated bridge between Discord webhooks and Telegram Bot API.",
       tags: ["Python", "Discord API", "Telegram API"],
@@ -43,11 +50,18 @@ export default function Projects() {
               className="group flex flex-col md:flex-row md:items-center gap-3 md:gap-6 py-8 px-4 -mx-4 rounded-xl hover:bg-[#201f26] transition-colors"
             >
               {/* Project name */}
-              <h3
-                className="text-[#e5e1eb] font-semibold text-base group-hover:text-[#96DAAF] transition-colors md:w-48 shrink-0"
-              >
-                {project.title}
-              </h3>
+              <div className="flex items-center gap-2 md:w-48 shrink-0">
+                <h3
+                  className="text-[#e5e1eb] font-semibold text-base group-hover:text-[#96DAAF] transition-colors"
+                >
+                  {project.title}
+                </h3>
+                {project.label && (
+                  <span className="font-label text-[#E8B65A] bg-[#E8B65A]/10 border border-[#E8B65A]/30 px-2 py-0.5 rounded-full shrink-0">
+                    {project.label}
+                  </span>
+                )}
+              </div>
 
               {/* Description */}
               <p
