@@ -1,6 +1,6 @@
 import React from "react"
 import type { Metadata } from "next"
-import { Instrument_Serif, Plus_Jakarta_Sans } from "next/font/google"
+import { Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google"
 import localFont from "next/font/local"
 import "./globals.css"
 import Header from "@/components/header"
@@ -11,10 +11,9 @@ import { cn } from "@/lib/utils"
 import { Suspense } from "react"
 import Script from "next/script"
 
-const instrumentSerif = Instrument_Serif({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-instrument",
   display: "swap",
 })
@@ -64,7 +63,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={cn(
           "min-h-screen bg-background text-foreground antialiased",
-          instrumentSerif.variable,
+          spaceGrotesk.variable,
           plusJakartaSans.variable,
           chatbrands.variable,
           plusJakartaSans.className,

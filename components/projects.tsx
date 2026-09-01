@@ -3,22 +3,11 @@ import { ArrowUpRight } from "lucide-react"
 export default function Projects() {
   const projects = [
     {
-      title: "dc-tg-forwarder",
-      description: "Automated bridge between Discord webhooks and Telegram Bot API.",
-      tags: ["Python", "Discord API", "Telegram API"],
-      url: "https://github.com/officialbishowb/dc-tg-forwarder",
-    },
-    {
-      title: "simple-auth",
-      description: "Lightweight OAuth2 server implementation for microservice architectures.",
-      tags: ["Node.js", "OAuth2", "JWT"],
-      url: "https://github.com/officialbishowb/simple-auth",
-    },
-    {
-      title: "vienna-traffic",
-      description: "Real-time analysis tool for public transport in Vienna (Wiener Linien API).",
-      tags: ["Python", "REST API", "Data Analysis"],
-      url: "https://github.com/officialbishowb/vienna-traffic",
+      title: "zeitt.io",
+      description: "The auto-scheduler for people juggling work, study, and side projects.",
+      tags: ["Next.js", "NestJS", "TypeScript"],
+      url: "https://zeitt.io",
+      label: "In Progress",
     },
   ]
 
@@ -29,7 +18,7 @@ export default function Projects() {
         {/* Section header */}
         <div className="mb-16">
           <span className="font-label text-[#96DAAF] bg-[#96DAAF]/10 border border-[#96DAAF]/30 px-3 py-1.5 rounded-full inline-block mb-4">PROJECTS</span>
-          <h2 className="font-headline text-[#e5e1eb] italic">Selected Works.</h2>
+          <h2 className="font-headline text-[#e5e1eb]">Selected Works.</h2>
         </div>
 
         {/* Horizontal list */}
@@ -40,14 +29,21 @@ export default function Projects() {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col md:flex-row md:items-center gap-3 md:gap-6 py-8 px-4 -mx-4 rounded-xl hover:bg-[#201f26] transition-colors"
+              className="group flex flex-col md:flex-row md:items-center gap-3 md:gap-6 py-8 px-6 md:px-4 -mx-4 rounded-xl hover:bg-[#201f26] transition-colors"
             >
               {/* Project name */}
-              <h3
-                className="text-[#e5e1eb] font-semibold text-base group-hover:text-[#96DAAF] transition-colors md:w-48 shrink-0"
-              >
-                {project.title}
-              </h3>
+              <div className="flex items-center gap-2 md:w-48 shrink-0">
+                <h3
+                  className="text-[#e5e1eb] font-semibold text-base group-hover:text-[#96DAAF] transition-colors"
+                >
+                  {project.title}
+                </h3>
+                {project.label && (
+                  <span className="font-label text-[#E8B65A] bg-[#E8B65A]/10 border border-[#E8B65A]/30 px-2 py-0.5 rounded-full shrink-0">
+                    {project.label}
+                  </span>
+                )}
+              </div>
 
               {/* Description */}
               <p
