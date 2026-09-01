@@ -9,24 +9,6 @@ export default function Projects() {
       url: "https://zeitt.io",
       label: "In Progress",
     },
-    {
-      title: "dc-tg-forwarder",
-      description: "Automated bridge between Discord webhooks and Telegram Bot API.",
-      tags: ["Python", "Discord API", "Telegram API"],
-      url: "https://github.com/officialbishowb/dc-tg-forwarder",
-    },
-    {
-      title: "simple-auth",
-      description: "Lightweight OAuth2 server implementation for microservice architectures.",
-      tags: ["Node.js", "OAuth2", "JWT"],
-      url: "https://github.com/officialbishowb/simple-auth",
-    },
-    {
-      title: "vienna-traffic",
-      description: "Real-time analysis tool for public transport in Vienna (Wiener Linien API).",
-      tags: ["Python", "REST API", "Data Analysis"],
-      url: "https://github.com/officialbishowb/vienna-traffic",
-    },
   ]
 
   return (
