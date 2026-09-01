@@ -44,22 +44,21 @@
   }
 }
 
-/* Only the hero display headline uses Instrument Serif italic */
+/* Only the hero display headline uses Space Grotesk */
 .font-display {
-  font-family: var(--font-instrument), Georgia, serif;
-  letter-spacing: .15em;
+  font-family: var(--font-instrument), system-ui, sans-serif;
+  letter-spacing: -0.02em;
   line-height: 1.1;
-  font-style: italic;
+  font-weight: 500;
 }
 
-/* All section headings use Instrument Serif */
+/* All section headings use Space Grotesk */
 .font-headline {
-  font-family: var(--font-instrument), Georgia, serif;
+  font-family: var(--font-instrument), system-ui, sans-serif;
   font-size: 2rem;
-  font-weight: 400;
-  font-style: italic;
+  font-weight: 500;
   line-height: 1.2;
-  letter-spacing: .15em;
+  letter-spacing: -0.02em;
 }
 
 /* Labels and meta text use Chatbrands */
@@ -76,7 +75,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-instrument), Georgia, serif;
+  font-family: var(--font-instrument), system-ui, sans-serif;
 }
 
 label {

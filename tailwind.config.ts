@@ -20,7 +20,7 @@ const config = {
     extend: {
       fontFamily: {
         sans:  ["var(--font-jakarta)", "system-ui", "sans-serif"],
-        serif: ["var(--font-instrument)", "Georgia", "serif"],
+        serif: ["var(--font-instrument)", "system-ui", "sans-serif"],
         mono:  ["var(--font-chatbrands)", "var(--font-jakarta)", "system-ui", "sans-serif"],
       },
       colors: {

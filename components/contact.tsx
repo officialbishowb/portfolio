@@ -8,7 +8,7 @@ export default function Contact() {
         {/* Section header */}
         <div className="mb-16">
           <span className="font-label text-[#96DAAF] bg-[#96DAAF]/10 border border-[#96DAAF]/30 px-3 py-1.5 rounded-full inline-block mb-4">CONTACT</span>
-          <h2 className="font-headline text-[#e5e1eb] italic" style={{ fontStyle: "italic" }}>Get in touch.</h2>
+          <h2 className="font-headline text-[#e5e1eb]">Get in touch.</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">

@@ -36,7 +36,7 @@ export default function Projects() {
         {/* Section header */}
         <div className="mb-16">
           <span className="font-label text-[#96DAAF] bg-[#96DAAF]/10 border border-[#96DAAF]/30 px-3 py-1.5 rounded-full inline-block mb-4">PROJECTS</span>
-          <h2 className="font-headline text-[#e5e1eb] italic">Selected Works.</h2>
+          <h2 className="font-headline text-[#e5e1eb]">Selected Works.</h2>
         </div>
 
         {/* Horizontal list */}
