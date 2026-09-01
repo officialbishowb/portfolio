@@ -5,7 +5,7 @@ export default function Projects() {
     {
       title: "zeitt.io",
       description: "The auto-scheduler for people juggling work, study, and side projects.",
-      tags: ["Next.js", "TypeScript"],
+      tags: ["Next.js", "NestJS", "TypeScript"],
       url: "https://zeitt.io",
       label: "In Progress",
     },
