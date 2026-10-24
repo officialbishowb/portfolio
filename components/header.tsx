@@ -20,7 +20,6 @@ export default function Header() {
   const navLinks = [
     { name: "About", href: "/#about" },
     { name: "Skills", href: "/#skills" },
-    { name: "Projects", href: "/#projects" },
     { name: "Books", href: "/books" },
     { name: "Contact", href: "/#contact" },
     { name: "Blog", href: "https://blog.officialbishowb.com" },
