@@ -1,87 +1,52 @@
-import { Mail, ExternalLink } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
+
+const channels = [
+  { label: "Email", value: "contact@officialbishowb.com", href: "mailto:contact@officialbishowb.com" },
+  { label: "LinkedIn", value: "in/bishowb", href: "https://www.linkedin.com/in/bishowb/" },
+  {
+    label: "GitHub",
+    value: "Open an issue",
+    href: "https://github.com/officialbishowb/portfolio/issues/new?title=Contact+Request&labels=Contact&body=Please+type+your+message+here",
+  },
+]
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 md:py-32" style={{ backgroundColor: "#131319" }}>
-      <div className="px-4 md:px-6 mx-auto max-w-5xl">
-
-        {/* Section header */}
-        <div className="mb-16">
-          <span className="font-label text-[#96DAAF] bg-[#96DAAF]/10 border border-[#96DAAF]/30 px-3 py-1.5 rounded-full inline-block mb-4">CONTACT</span>
-          <h2 className="font-headline text-[#e5e1eb]">Get in touch.</h2>
+    <section id="contact" className="ds-section">
+      <div className="ds-container flex flex-wrap items-start gap-x-16 gap-y-12">
+        <div className="flex-[1_1_360px] min-w-0">
+          <p className="ds-label-accent mb-4">04 / Contact</p>
+          <h2 className="ds-h1 mb-6">Get in touch.</h2>
+          <p className="ds-body-lg max-w-[28rem]">
+            Have a project in mind or just want to say hi? I&apos;m always open to exciting inquiries and new
+            opportunities.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-
-          {/* Left: intro */}
-          <div>
-            <p
-              className="text-[#bfc9c0] text-sm leading-relaxed"
-              style={{ fontFamily: "var(--font-jakarta)" }}
-            >
-              Have a project in mind or just want to say hi? I&apos;m always open to exciting inquiries and new
-              opportunities. Reach out through any of these channels.
-            </p>
-          </div>
-
-          {/* Right: contact rows — each entire row is a link */}
-          <div className="divide-y divide-[#404942]/40">
-
-            <a
-              href="mailto:contact@officialbishowb.com"
-              className="group flex items-center justify-between py-5 transition-colors"
-            >
-              <div>
-                <p className="font-label text-[#bfc9c0] mb-1">EMAIL</p>
-                <span
-                  className="text-[#e5e1eb] text-sm group-hover:text-[#96DAAF] transition-colors"
-                  style={{ fontFamily: "var(--font-jakarta)", fontWeight: 500 }}
-                >
-                  contact@officialbishowb.com
+        <div className="flex flex-[1_1_420px] min-w-0 flex-col border-t border-border">
+          {channels.map((c) => {
+            const external = c.href.startsWith("http")
+            return (
+              <a
+                key={c.label}
+                href={c.href}
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="group flex items-center justify-between gap-4 border-b border-border py-5 text-foreground"
+              >
+                <span className="flex min-w-0 flex-col gap-1">
+                  <span className="ds-label">{c.label}</span>
+                  <span className="text-lg font-medium [overflow-wrap:anywhere] group-hover:text-primary transition-colors">
+                    {c.value}
+                  </span>
                 </span>
-              </div>
-              <Mail className="h-4 w-4 text-[#bfc9c0] group-hover:text-[#96DAAF] transition-colors shrink-0" />
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/bishowb/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-between py-5 transition-colors"
-            >
-              <div>
-                <p className="font-label text-[#bfc9c0] mb-1">LINKEDIN</p>
-                <span
-                  className="text-[#e5e1eb] text-sm group-hover:text-[#96DAAF] transition-colors"
-                  style={{ fontFamily: "var(--font-jakarta)", fontWeight: 500 }}
-                >
-                  LinkedIn
-                </span>
-              </div>
-              <ExternalLink className="h-4 w-4 text-[#bfc9c0] group-hover:text-[#96DAAF] transition-colors shrink-0" />
-            </a>
-
-            <a
-              href="https://github.com/officialbishowb/portfolio/issues/new?title=Contact+Request&labels=Contact&body=Please+type+your+message+here"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-between py-5 transition-colors"
-            >
-              <div>
-                <p className="font-label text-[#bfc9c0] mb-1">GITHUB</p>
-                <span
-                  className="text-[#e5e1eb] text-sm group-hover:text-[#96DAAF] transition-colors"
-                  style={{ fontFamily: "var(--font-jakarta)", fontWeight: 500 }}
-                >
-                  GitHub
-                </span>
-              </div>
-              <ExternalLink className="h-4 w-4 text-[#bfc9c0] group-hover:text-[#96DAAF] transition-colors shrink-0" />
-            </a>
-
-          </div>
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="h-5 w-5 shrink-0 text-subtle group-hover:text-primary transition-colors"
+                />
+              </a>
+            )
+          })}
         </div>
-
       </div>
     </section>
   )

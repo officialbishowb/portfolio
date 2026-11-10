@@ -1,87 +1,76 @@
-import Image from "next/image"
-import { ArrowRight, Github, Linkedin, Instagram } from "lucide-react"
+import { ArrowRight } from "lucide-react"
+
+const facts = [
+  { key: "role", value: "Full-Stack Developer" },
+  { key: "based_in", value: "Vienna" },
+  { key: "focus", value: "APIs, databases, infrastructure" },
+  { key: "studying", value: "IT Security" },
+]
+
+const socials = [
+  { name: "GitHub", href: "https://github.com/officialbishowb" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/bishowb/" },
+  { name: "Instagram", href: "https://instagram.com/officialbishowb" },
+]
 
 export default function Hero() {
   return (
-    <section id="home" className="pt-36 pb-24 md:pt-48 md:pb-36">
-      <div className="px-4 md:px-6 mx-auto max-w-5xl">
-        <div className="max-w-3xl mx-auto text-center space-y-8">
-
-          {/* Avatar */}
-          <div className="flex justify-center">
-            <div className="w-16 h-16 rounded-full overflow-hidden border border-[#404942]/40">
-              <Image
-                src="/assets/images/avatar.png"
-                alt="Bishow B."
-                width={64}
-                height={64}
-                className="object-cover w-full h-full"
-              />
-            </div>
-          </div>
-
-          {/* Status badge */}
-          <div className="flex justify-center">
-            <span className="font-label text-[#96DAAF] border border-[#96DAAF]/30 px-4 py-1.5 rounded-full">
-              ● AVAILABLE FOR PROJECTS
+    <section id="home" className="py-20 md:py-28">
+      <div className="ds-container flex flex-wrap items-end gap-12">
+        <div className="flex-[999_1_520px] min-w-0">
+          <p className="ds-label-accent mb-8 flex items-center gap-2.5">
+            <span aria-hidden="true" className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
             </span>
-          </div>
-
-          {/* Headline */}
-          <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] text-[#e5e1eb]">
-            Building systems<br />
-          </h1>
-
-          {/* Subtitle */}
-          <p
-            className="text-[#bfc9c0] text-base md:text-lg max-w-xl mx-auto leading-relaxed"
-          >
-            Full-Stack Developer from Vienna. Focused on APIs, scalable databases, and robust infrastructure.
+            Available for projects
           </p>
 
-          {/* CTA Button */}
-          <div className="flex justify-center pt-2">
-            <a
-              href="#about"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#96DAAF] text-[#131319] font-medium text-sm hover:bg-[#b1f7ca] transition-colors"
-              style={{ minHeight: "44px" }}
-            >
-              About Me <ArrowRight className="h-4 w-4" />
+          <h1 className="ds-display mb-7">
+            Building systems <span className="text-subtle">that scale.</span>
+          </h1>
+
+          <p className="ds-lead mb-10 max-w-[34rem]">
+            Hi, I&apos;m Bishow. Full-Stack Developer from Vienna, focused on APIs, scalable databases, and
+            robust infrastructure.
+          </p>
+
+          <div className="mb-10 flex flex-wrap gap-3">
+            <a href="#projects" className="ds-btn ds-btn-primary">
+              View projects <ArrowRight aria-hidden="true" className="h-4 w-4" />
+            </a>
+            <a href="#contact" className="ds-btn ds-btn-secondary">
+              Get in touch
             </a>
           </div>
 
-          {/* Social links */}
-          <div className="flex justify-center gap-6 pt-2">
-            <a
-              href="https://github.com/officialbishowb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#bfc9c0] hover:text-[#96DAAF] transition-colors p-2"
-              aria-label="GitHub"
-            >
-              <Github className="h-5 w-5" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/bishowb/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#bfc9c0] hover:text-[#96DAAF] transition-colors p-2"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="https://instagram.com/officialbishowb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#bfc9c0] hover:text-[#96DAAF] transition-colors p-2"
-              aria-label="Instagram"
-            >
-              <Instagram className="h-5 w-5" />
-            </a>
+          <div className="flex flex-wrap gap-x-6">
+            {socials.map((s) => (
+              <a
+                key={s.name}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ds-label py-3 text-muted-foreground hover:text-primary transition-colors"
+              >
+                {s.name}
+              </a>
+            ))}
           </div>
-
         </div>
+
+        <dl className="ds-card flex-[1_1_320px] min-w-0 px-6 py-2 font-mono text-[0.8125rem] leading-normal">
+          {facts.map((f) => (
+            <div key={f.key} className="flex justify-between gap-4 border-b border-border py-3.5">
+              <dt className="text-subtle">{f.key}</dt>
+              <dd className="text-right text-foreground">{f.value}</dd>
+            </div>
+          ))}
+          <div className="flex justify-between gap-4 py-3.5">
+            <dt className="text-subtle">status</dt>
+            <dd className="text-right text-primary">available</dd>
+          </div>
+        </dl>
       </div>
     </section>
   )

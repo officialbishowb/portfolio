@@ -1,55 +1,23 @@
 import React from "react"
 import type { Metadata } from "next"
-import { Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google"
-import localFont from "next/font/local"
+import "@fontsource/ibm-plex-sans/400.css"
+import "@fontsource/ibm-plex-sans/400-italic.css"
+import "@fontsource/ibm-plex-sans/500.css"
+import "@fontsource/ibm-plex-sans/600.css"
+import "@fontsource/ibm-plex-mono/400.css"
+import "@fontsource/ibm-plex-mono/500.css"
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 import Loading from "./loading"
-import { cn } from "@/lib/utils"
 import { Suspense } from "react"
 import Script from "next/script"
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-instrument",
-  display: "swap",
-})
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-jakarta",
-  display: "swap",
-})
-
-const chatbrands = localFont({
-  src: [
-    {
-      path: "../public/assets/fonts/league_spartan/LeagueSpartan-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/assets/fonts/league_spartan/LeagueSpartan-Medium.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/assets/fonts/league_spartan/LeagueSpartan-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-chatbrands",
-  display: "swap",
-})
-
 export const metadata: Metadata = {
-  title: "Portfolio | Bishow",
-  description: "Personal portfolio showcasing my projects and skills",
+  title: "Bishow B. | Full-Stack Developer",
+  description:
+    "Full-Stack Developer from Vienna. Focused on APIs, scalable databases, and robust infrastructure.",
 }
 
 export default function RootLayout({
@@ -59,16 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body
-        suppressHydrationWarning
-        className={cn(
-          "min-h-screen bg-background text-foreground antialiased",
-          spaceGrotesk.variable,
-          plusJakartaSans.variable,
-          chatbrands.variable,
-          plusJakartaSans.className,
-        )}
-      >
+      <body suppressHydrationWarning className="min-h-screen flex flex-col">
         {/* Privacy-friendly analytics by Plausible */}
         <Script
           async
@@ -84,7 +43,7 @@ export default function RootLayout({
         />
         <Header />
         <Suspense fallback={<Loading />}>
-          <main className="min-h-screen">{children}</main>
+          <main className="flex-1">{children}</main>
         </Suspense>
         <Footer />
         <Toaster />

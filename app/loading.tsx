@@ -1,9 +1,7 @@
-"use client"
-
 export default function Loading() {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="inline-block w-12 h-12 border-4 border-current border-t-transparent text-primary rounded-full animate-spin" />
+    <div className="flex items-center justify-center min-h-[60vh]" role="status" aria-label="Loading">
+      <div className="w-10 h-10 rounded-full border-2 border-primary/20 border-t-primary animate-spin" />
     </div>
-)
+  )
 }

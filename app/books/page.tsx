@@ -42,7 +42,7 @@ function makeShelfCSS(containerId: string, widgetId: string): string {
 }
 #${containerId} .gr_custom_each_container_${widgetId}{
   width:auto; clear:none; margin:0; overflow:visible; padding:20px;
-  border:1px solid hsl(var(--border)); border-radius:1rem;
+  border:1px solid hsl(var(--border)); border-radius:var(--radius);
   background: var(--card-bg, hsl(var(--card))); color:hsl(var(--card-foreground));
   display:flex; gap:16px; align-items:flex-start;
   transition: all 0.2s ease;
@@ -54,7 +54,7 @@ function makeShelfCSS(containerId: string, widgetId: string): string {
   border-color: hsl(var(--primary) / 0.3);
 }
 #${containerId} .gr_custom_book_container_${widgetId}{
-  float:none; width:98px; height:160px; margin:0; overflow:hidden; border-radius:0.625rem; flex-shrink:0;
+  float:none; width:98px; height:160px; margin:0; overflow:hidden; border-radius:var(--radius-sm); flex-shrink:0;
   box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1);
 }
 #${containerId} .gr_custom_book_container_${widgetId} img{
@@ -196,9 +196,9 @@ function GoodreadsWidget({
         {loading ? (
           <div role="status" aria-live="polite" className="flex items-center justify-center gap-3 py-8">
             <div className="relative">
-              <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+              <div className="w-8 h-8 border-2 border-primary/20 border-t-primary rounded-full animate-spin"></div>
             </div>
-            <span className="text-sm font-medium text-muted-foreground">Loading library…</span>
+            <span className="ds-label">Loading library…</span>
           </div>
         ) : null}
       </div>
@@ -251,22 +251,22 @@ function ShelfSection({
     <details
       open={!collapsed}
       onToggle={onToggle}
-      className={`${isLast ? "" : "mb-6"} rounded-xl border bg-card/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden`}
+      className={`${isLast ? "" : "mb-6"} ds-card overflow-hidden`}
     >
       <summary
-        className="group flex items-center justify-between cursor-pointer select-none px-6 py-4 bg-gradient-to-r from-primary/5 to-primary/0 hover:from-primary/10 hover:to-primary/5 transition-all [&::-webkit-details-marker]:hidden"
+        className="group flex min-h-16 items-center justify-between cursor-pointer select-none px-6 py-4 hover:bg-secondary transition-colors [&::-webkit-details-marker]:hidden"
         aria-expanded={!collapsed}
       >
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+          <div className="p-2 rounded-md bg-primary/10">
             {icon}
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-base font-semibold text-[#e5e1eb]" style={{ fontFamily: "var(--font-instrument)" }}>
+            <span className="text-lg font-semibold text-foreground">
               {title}
             </span>
             {bookCount !== null && bookCount > 0 && (
-              <span className="font-label text-[#96DAAF] bg-[#96DAAF]/10 border border-[#96DAAF]/30 px-2 py-0.5 rounded-full">
+              <span className="ds-chip border-primary/40 text-primary">
                 {bookCount}
               </span>
             )}
@@ -322,17 +322,15 @@ export default function BooksPage() {
   ]
 
   return (
-    <main className="min-h-screen px-4 pt-28 pb-12 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/20">
-      <div className="max-w-7xl mx-auto">
-        <header className="mb-12 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
-            <BookOpen className="w-8 h-8 text-primary" />
-          </div>
-          <h1 className="font-headline text-[#e5e1eb] mb-3 text-3xl sm:text-4xl">
+    <main className="py-20 md:py-28">
+      <div className="ds-container">
+        <header className="mb-12">
+          <p className="ds-label-accent mb-4">Books</p>
+          <h1 className="ds-h1 mb-4">
             My Library
           </h1>
-          <p className="text-sm text-[#bfc9c0] max-w-2xl mx-auto">
-            A curated collection of books I'm reading and have read, pulled live from my Goodreads shelves.
+          <p className="ds-body-lg max-w-2xl">
+            Reading is how I learn outside of code. These are the books I&apos;m reading and have read, pulled live from my Goodreads shelves.
           </p>
         </header>
 
