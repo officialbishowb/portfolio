@@ -13,12 +13,14 @@ interface Project {
   description: string
   stack: string[]
   link?: string
+  isPrivate: boolean,
 }
 
 const projects: Project[] = [
   {
     name: "Tally",
     year: "2026",
+    isPrivate: true,
     why: (
       <>
         I wanted my own workout tracker, with the features I need and no subscription. Inspired by{" "}
@@ -34,6 +36,7 @@ const projects: Project[] = [
   {
     name: "LifeOS",
     year: "2026",
+    isPrivate: true,
     why: "One place for the things I actually want to keep track of.",
     description:
       "A personal dashboard for my finances and goals. Two modules for now, built to grow. No AI: my (financial) data stays with me.",
@@ -41,11 +44,13 @@ const projects: Project[] = [
   },
   {
     name: "Learnpfad",
+    isPrivate: false,
+    link: "https://learnpfad.officialbishowb.com",
     year: "2026",
-    why: "Like Duolingo, but I pick the topics myself.",
+    why: "A platform where you can learn different topics with visualizations.",
     description:
-      "Turns roadmap.sh and other free resources into AI-assisted lessons and quizzes, with spaced repetition.",
-    stack: ["SvelteKit", "SQLite", "Drizzle"],
+      "Turns roadmap.sh and other free resources into learning paths. Currently in German only.",
+    stack: ["SvelteKit", "SQLite"],
   },
 ]
 
@@ -69,7 +74,7 @@ export default function Projects() {
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] gap-6">
          {projects.map((p, i) => (
   <article key={`${i}-${p.name}`} className="ds-card flex flex-col gap-4 p-7">
-              <p className="ds-label">{p.year} · Private · Self-hosted</p>
+              <p className="ds-label">{p.year} · {p.isPrivate ? "Private" : "Public"} · Self-hosted</p>
               <h3 className="ds-h3">{p.name}</h3>
               <p className="text-foreground">
                 <span className="ds-label-accent mr-2">Why</span>
